@@ -292,7 +292,7 @@ namespace Content.Server.Administration.Managers
 
         private async void LoginAdminMaybe(ICommonSession session)
         {
-            var adminDat = await LoadAdminData(session);
+            var adminDat = await LoadAdminData(session, false);
             if (adminDat == null)
             {
                 // Not an admin.
@@ -307,6 +307,12 @@ namespace Content.Server.Administration.Managers
             };
 
             _admins.Add(session, reg);
+
+            if (dat.HasFlag(AdminFlags.PremiumAnnounce, true))
+            {
+                string announce = $"{dat.Title} зашел на сервер: {session.Name}";
+                _chat.ChatMessageToAll(Shared.Chat.ChatChannel.OOC, announce, announce, default, false, true, Color.Violet);
+            }
 
             if (!session.ContentData()!.ExplicitlyDeadminned)
             {
@@ -323,11 +329,17 @@ namespace Content.Server.Administration.Managers
             UpdateAdminStatus(session);
         }
 
-        private async Task<(AdminData dat, int? rankId, bool specialLogin)?> LoadAdminData(ICommonSession session)
+        private async Task<(AdminData dat, int? rankId, bool specialLogin)?> LoadAdminData(ICommonSession session, bool skipLocal = false)
         {
             var promoteHost = IsLocal(session) && _cfg.GetCVar(CCVars.ConsoleLoginLocal)
                               || _promotedPlayers.Contains(session.UserId)
                               || session.Name == _cfg.GetCVar(CCVars.ConsoleLoginHostUser);
+
+            // Added this extra parameter for local debug purposes
+            if (skipLocal)
+            {
+                promoteHost = false;
+            }
 
             if (promoteHost)
             {

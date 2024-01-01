@@ -1,4 +1,4 @@
-﻿
+
 namespace Content.Shared.Administration
 {
     /// <summary>
@@ -30,6 +30,17 @@ namespace Content.Shared.Administration
         public bool HasFlag(AdminFlags flag)
         {
             return Active && (Flags & flag) == flag;
+        }
+
+        /// <summary>
+        ///     Checks whether this admin has an admin flag, overloaded version to include whether <see cref="Active"/> check should be skipped.
+        /// </summary>
+        /// <param name="flag">The flags to check. Multiple flags can be specified, they must all be held.</param>
+        /// <param name="skipActive">Proceed to flag check even if admin is deadmined or just connected.</param>
+        /// <returns>False if this admin is not <see cref="Active"/> or does not have all the flags specified.</returns>
+        public bool HasFlag(AdminFlags flag, bool skipActive)
+        {
+            return (skipActive ? true : Active) && (Flags & flag) == flag;
         }
 
         /// <summary>
