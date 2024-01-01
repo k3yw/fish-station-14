@@ -1,5 +1,7 @@
 using Content.Corvax.Interfaces.Server;
+using Content.Server.Administration.Managers;
 using Content.Server.Database;
+using Content.Shared.Administration;
 using Content.Shared.GameTicking;
 using Content.Shared.GameWindow;
 using Content.Shared.Players;
@@ -10,6 +12,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using System.Linq;
 
 namespace Content.Server.GameTicking
 {
@@ -65,6 +68,12 @@ namespace Content.Server.GameTicking
                         var record = await _dbManager.GetPlayerRecordByUserId(args.Session.UserId);
                         var firstConnection = record != null &&
                                               Math.Abs((record.FirstSeenTime - record.LastSeenTime).TotalMinutes) < 1;
+
+                        if (LobbyEnabled && _roundStartCountdownHasNotStartedYetDueToNoPlayers)
+                        {
+                            _roundStartCountdownHasNotStartedYetDueToNoPlayers = false;
+                            _roundStartTime = _gameTiming.CurTime + LobbyDuration;
+                        }
 
                         _chatManager.SendAdminAnnouncement(firstConnection
                             ? Loc.GetString("player-first-join-message", ("name", args.Session.Name))
