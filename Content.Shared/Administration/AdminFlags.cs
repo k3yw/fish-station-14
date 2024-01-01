@@ -89,6 +89,12 @@
         /// </summary>
         EditNotes = 1 << 14,
 
+
+        /// <summary>
+        ///     Публичное оповещение входа игрока на сервер.
+        /// </summary>
+        PremiumAnnounce = 1 << 15,
+
         /// <summary>
         ///     Dangerous host permissions like scsi.
         /// </summary>
