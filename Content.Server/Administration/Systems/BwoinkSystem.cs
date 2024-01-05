@@ -5,6 +5,7 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Content.Server._FishStation.Administration;
 using Content.Server.Administration.Managers;
 using Content.Server.Discord;
 using Content.Server.GameTicking;
@@ -55,6 +56,7 @@ namespace Content.Server.Administration.Systems
         // Maximum length a message can be before it is cut off
         // Should be shorter than DescriptionMax
         private const ushort MessageLengthCap = 3000;
+        private const ushort BwoinkMessageLengthCap = 256;
 
         // Text to be used to cut off messages that are too long. Should be shorter than MessageLengthCap
         private const string TooLongText = "... **(too long)**";
@@ -387,6 +389,15 @@ namespace Content.Server.Administration.Systems
             base.OnBwoinkTextMessage(message, eventArgs);
             var senderSession = eventArgs.SenderSession;
 
+            // Deny message if it's too long to avoid staggering and spamming
+            if (message.Text.Length >= BwoinkMessageLengthCap)
+            {
+                var systemTextNotify = Loc.GetString("bwoink-system-message-is-too-long", ("limit", BwoinkMessageLengthCap));
+                var notifyMessage = new BwoinkTextMessage(message.UserId, SystemUserId, systemTextNotify);
+                RaiseNetworkEvent(notifyMessage, senderSession.ConnectedClient);
+                return;
+            }
+
             // TODO: Sanitize text?
             // Confirm that this person is actually allowed to send a message here.
             var personalChannel = senderSession.UserId == message.UserId;
@@ -396,6 +407,14 @@ namespace Content.Server.Administration.Systems
             if (!authorized)
             {
                 // Unauthorized bwoink (log?)
+                return;
+            }
+
+            if (RateLimiter.IsBeingRateLimited(senderSession.UserId.UserId.ToString()))
+            {
+                var systemTextNotify = Loc.GetString("bwoink-system-message-rate-limit");
+                var notifyMessage = new BwoinkTextMessage(message.UserId, SystemUserId, systemTextNotify);
+                RaiseNetworkEvent(notifyMessage, senderSession.ConnectedClient);
                 return;
             }
 

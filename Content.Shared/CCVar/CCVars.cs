@@ -1520,7 +1520,7 @@ namespace Content.Shared.CCVar
         /// <seealso cref="ChatRateLimitPeriod"/>
         /// <seealso cref="ChatRateLimitAnnounceAdmins"/>
         public static readonly CVarDef<int> ChatRateLimitCount =
-            CVarDef.Create("chat.rate_limit_count", 10, CVar.SERVERONLY);
+            CVarDef.Create("chat.rate_limit_count", 2, CVar.SERVERONLY);
 
         /// <summary>
         /// If true, announce when a player breached chat rate limit to game administrators.
@@ -1536,7 +1536,7 @@ namespace Content.Shared.CCVar
             CVarDef.Create("chat.rate_limit_announce_admins_delay", 15, CVar.SERVERONLY);
 
         public static readonly CVarDef<int> ChatMaxMessageLength =
-            CVarDef.Create("chat.max_message_length", 1000, CVar.SERVER | CVar.REPLICATED);
+            CVarDef.Create("chat.max_message_length", 256, CVar.SERVER | CVar.REPLICATED);
 
         public static readonly CVarDef<bool> ChatSanitizerEnabled =
             CVarDef.Create("chat.chat_sanitizer_enabled", true, CVar.SERVERONLY);

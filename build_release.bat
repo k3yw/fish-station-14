@@ -1,1 +1,2 @@
-python Tools/package_server_build.py --hybrid-acz --platform win-x64
+dotnet build Content.Packaging --configuration Release
+dotnet run --project Content.Packaging server --hybrid-acz --platform win-x64
