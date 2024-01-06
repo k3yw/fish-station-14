@@ -1,4 +1,4 @@
-﻿using Content.Client.Administration.Managers;
+using Content.Client.Administration.Managers;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
 using Content.Client.Clickable;
@@ -30,6 +30,8 @@ namespace Content.Client.IoC
     {
         public static void Register()
         {
+            IoCManager.Register<_FishStation.DiscordAuth.IClientDiscordAuthManager, _FishStation.DiscordAuth.DiscordAuthManager>();
+
             IoCManager.Register<IParallaxManager, ParallaxManager>();
             IoCManager.Register<IChatManager, ChatManager>();
             IoCManager.Register<IClientPreferencesManager, ClientPreferencesManager>();

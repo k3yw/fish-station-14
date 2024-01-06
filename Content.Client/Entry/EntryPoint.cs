@@ -168,6 +168,12 @@ namespace Content.Client.Entry
             _userInterfaceManager.SetActiveTheme(_configManager.GetCVar(CVars.InterfaceTheme));
             _documentParsingManager.Initialize();
 
+            // start-fishstation: ioc
+            //IoCManager.Resolve<Content.Corvax.Interfaces.Client.IClientSponsorsManager>().Initialize();
+            //IoCManager.Resolve<Content.Corvax.Interfaces.Client.IClientJoinQueueManager>().Initialize();
+            IoCManager.Resolve<Content.Client._FishStation.DiscordAuth.IClientDiscordAuthManager>().Initialize();
+            // end-fishstation: ioc
+
             _baseClient.RunLevelChanged += (_, args) =>
             {
                 if (args.NewLevel == ClientRunLevel.Initialize)
