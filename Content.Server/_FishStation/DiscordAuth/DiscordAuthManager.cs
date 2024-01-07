@@ -1,3 +1,4 @@
+using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -86,6 +87,7 @@ public sealed class DiscordAuthManager : Content._FishStation.DiscordAuth.IServe
     {
         _sawmill.Info($"Player {userId} requested generation Discord verification link");
         DiscordGenerateLinkResponse ret = new DiscordGenerateLinkResponse("https://google.com/", new byte[] { });
+        // Временно отключено
         return ret;
         var requestUrl = $"{_apiUrl}/{WebUtility.UrlEncode(userId.ToString())}?key={_apiKey}";
         var response = await _httpClient.PostAsync(requestUrl, null, cancel);
