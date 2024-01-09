@@ -43,9 +43,9 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/layer1.png"
+        path: "/Textures/Parallaxes/menu_layer1.png"
       slowness: 0.5
-      scale: "3, 3"
+      scale: "1.5, 1.5"
     - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars"

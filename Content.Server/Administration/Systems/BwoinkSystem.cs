@@ -5,6 +5,7 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Content.Server._FishStation.Administration;
 using Content.Server.Administration.Managers;
 using Content.Server.Discord;
 using Content.Server.GameTicking;
@@ -55,6 +56,7 @@ namespace Content.Server.Administration.Systems
         // Maximum length a message can be before it is cut off
         // Should be shorter than DescriptionMax
         private const ushort MessageLengthCap = 3000;
+        private const ushort BwoinkMessageLengthCap = 256;
 
         // Text to be used to cut off messages that are too long. Should be shorter than MessageLengthCap
         private const string TooLongText = "... **(too long)**";
@@ -387,6 +389,15 @@ namespace Content.Server.Administration.Systems
             base.OnBwoinkTextMessage(message, eventArgs);
             var senderSession = eventArgs.SenderSession;
 
+            // Deny message if it's too long to avoid staggering and spamming
+            if (message.Text.Length >= BwoinkMessageLengthCap)
+            {
+                var systemTextNotify = Loc.GetString("bwoink-system-message-is-too-long", ("limit", BwoinkMessageLengthCap));
+                var notifyMessage = new BwoinkTextMessage(message.UserId, SystemUserId, systemTextNotify);
+                RaiseNetworkEvent(notifyMessage, senderSession.ConnectedClient);
+                return;
+            }
+
             // TODO: Sanitize text?
             // Confirm that this person is actually allowed to send a message here.
             var personalChannel = senderSession.UserId == message.UserId;
@@ -399,22 +410,34 @@ namespace Content.Server.Administration.Systems
                 return;
             }
 
+            if (RateLimiter.IsBeingRateLimited(senderSession.UserId.UserId.ToString()))
+            {
+                var systemTextNotify = Loc.GetString("bwoink-system-message-rate-limit");
+                var notifyMessage = new BwoinkTextMessage(message.UserId, SystemUserId, systemTextNotify);
+                RaiseNetworkEvent(notifyMessage, senderSession.ConnectedClient);
+                return;
+            }
+
             var escapedText = FormattedMessage.EscapeText(message.Text);
 
-            string bwoinkText;
+            var adminMgr = IoCManager.Resolve<IAdminManager>();
+            var adminSession = adminMgr.ActiveAdmins.ToList().Find(v => v.UserId == senderSession.UserId);
+            AdminData? adminData = null;
+            string adminPostFix = "";
 
-            if (senderAdmin is not null && senderAdmin.Flags == AdminFlags.Adminhelp) // Mentor. Not full admin. That's why it's colored differently.
+            if (adminSession is not null && (adminData = adminMgr.GetAdminData(adminSession)) is not null)
             {
-                bwoinkText = $"[color=purple]{senderSession.Name}[/color]: {escapedText}";
+                adminPostFix = $" ({adminData.Title})";
             }
-            else if (senderAdmin is not null && senderAdmin.HasFlag(AdminFlags.Adminhelp))
+
+            var bwoinkText = senderAdmin switch
             {
-                bwoinkText = $"[color=red]{senderSession.Name}[/color]: {escapedText}";
-            }
-            else
-            {
-                bwoinkText = $"{senderSession.Name}: {escapedText}";
-            }
+                var x when x is not null && x.Flags == AdminFlags.Adminhelp =>
+                    $"[color=purple]{senderSession.Name}{adminPostFix}[/color]: {escapedText}",
+                var x when x is not null && x.HasFlag(AdminFlags.Adminhelp) =>
+                    $"[color=red]{senderSession.Name}{adminPostFix}[/color]: {escapedText}",
+                _ => $"{senderSession.Name}: {escapedText}",
+            };
 
             var msg = new BwoinkTextMessage(message.UserId, senderSession.UserId, bwoinkText);
 

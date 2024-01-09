@@ -496,7 +496,7 @@ namespace Content.Shared.CCVar
         ///     The number of seconds between each tip being displayed when the round is actively going
         /// </summary>
         public static readonly CVarDef<float> TipFrequencyInRound =
-            CVarDef.Create("tips.in_game_frequency", 60f * 60);
+            CVarDef.Create("tips.in_game_frequency", 60f * 3);
 
         /*
          * Console
@@ -1494,7 +1494,7 @@ namespace Content.Shared.CCVar
             CVarDef.Create("viewport.minimum_width", 15, CVar.REPLICATED);
 
         public static readonly CVarDef<int> ViewportMaximumWidth =
-            CVarDef.Create("viewport.maximum_width", 21, CVar.REPLICATED);
+            CVarDef.Create("viewport.maximum_width", 30, CVar.REPLICATED);
 
         public static readonly CVarDef<int> ViewportWidth =
             CVarDef.Create("viewport.width", 21, CVar.CLIENTONLY | CVar.ARCHIVE);
@@ -1547,7 +1547,7 @@ namespace Content.Shared.CCVar
         /// <seealso cref="ChatRateLimitPeriod"/>
         /// <seealso cref="ChatRateLimitAnnounceAdmins"/>
         public static readonly CVarDef<int> ChatRateLimitCount =
-            CVarDef.Create("chat.rate_limit_count", 10, CVar.SERVERONLY);
+            CVarDef.Create("chat.rate_limit_count", 2, CVar.SERVERONLY);
 
         /// <summary>
         /// If true, announce when a player breached chat rate limit to game administrators.
@@ -1563,7 +1563,7 @@ namespace Content.Shared.CCVar
             CVarDef.Create("chat.rate_limit_announce_admins_delay", 15, CVar.SERVERONLY);
 
         public static readonly CVarDef<int> ChatMaxMessageLength =
-            CVarDef.Create("chat.max_message_length", 1000, CVar.SERVER | CVar.REPLICATED);
+            CVarDef.Create("chat.max_message_length", 256, CVar.SERVER | CVar.REPLICATED);
 
         public static readonly CVarDef<bool> ChatSanitizerEnabled =
             CVarDef.Create("chat.chat_sanitizer_enabled", true, CVar.SERVERONLY);

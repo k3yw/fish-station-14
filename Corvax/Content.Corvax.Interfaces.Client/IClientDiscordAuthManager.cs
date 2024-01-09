@@ -1,4 +1,5 @@
-﻿using Content.Corvax.Interfaces.Shared;
+using Content.Corvax.Interfaces.Shared;
+using Robust.Client.Graphics;
 
 namespace Content.Corvax.Interfaces.Client;
 

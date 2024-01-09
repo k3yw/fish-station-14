@@ -1,3 +1,4 @@
+using Content.Server._FishStation.DiscordAuth;
 using Content.Server.Acz;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
@@ -107,6 +108,10 @@ namespace Content.Server.Entry
                 IoCManager.Resolve<GhostKickManager>().Initialize();
                 IoCManager.Resolve<TTSManager>().Initialize(); // Corvax-TTS
                 IoCManager.Resolve<ServerInfoManager>().Initialize();
+
+                // start-fishstation: IoC
+                //IoCManager.Resolve<Content.Corvax.Interfaces.Server.IServerDiscordAuthManager>().Initialize();
+                IoCManager.Resolve<Content._FishStation.DiscordAuth.IServerDiscordAuthManager>().Initialize();
 
                 _voteManager.Initialize();
                 _updateManager.Initialize();
