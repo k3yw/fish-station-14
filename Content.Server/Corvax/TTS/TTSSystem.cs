@@ -33,7 +33,8 @@ public sealed partial class TTSSystem : EntitySystem
 
     private void OnRoundRestartCleanup(RoundRestartCleanupEvent ev)
     {
-        _ttsManager.ResetCache();
+        // EXPERIMENTAL
+        //_ttsManager.ResetCache();
     }
 
     private async void OnRequestGlobalTTS(RequestGlobalTTSEvent ev, EntitySessionEventArgs args)
@@ -56,6 +57,10 @@ public sealed partial class TTSSystem : EntitySystem
         if (!_isEnabled ||
             args.Message.Length > MaxMessageChars ||
             voiceId == null)
+            return;
+
+        // Disables TTS for non actor entities
+        if (!HasComp<ActorComponent>(uid))
             return;
 
         var voiceEv = new TransformSpeakerVoiceEvent(uid, voiceId);

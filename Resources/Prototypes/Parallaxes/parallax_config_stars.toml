@@ -7,6 +7,7 @@ color = "#000000"
 [[layers]]
 type = "points"
 closecolor = "#7E86BF"
+pointsize = 2
 count = 1000
 seed = 3472
 mask = true
@@ -17,15 +18,15 @@ maskpower = "0.35"
 masklacunarity = "1.5"
 maskfrequency = "3"
 maskthreshold = "0.37"
-maskseed = 3551
+maskseed = 6551
 
 # Bright background nebula stars, dim edge.
 [[layers]]
 type = "points"
 closecolor = "#3D415C"
-pointsize = 2
+pointsize = 3
 count = 1000
-seed = 3472
+seed = 5472
 mask = true
 masknoise_type = "fbm"
 maskoctaves = 4
@@ -39,17 +40,17 @@ maskseed = 3551
 # Couple of odd bright yellow-ish stars.
 [[layers]]
 type = "points"
-closecolor = "#FFD363"
-count = 30
-seed = 6454
+closecolor = "#5ab3bf"
+count = 50
+seed = 1454
 
 # And their dim edge.
 [[layers]]
 type = "points"
-closecolor = "#43371A"
+closecolor = "#b691cc"
 pointsize = 2
-count = 30
-seed = 6454
+count = 100
+seed = 9454
 
 # Colour-to-alpha.
 [[layers]]

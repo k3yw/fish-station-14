@@ -1,3 +1,4 @@
+using Content.Server._FishStation.DiscordAuth;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
@@ -59,6 +60,9 @@ namespace Content.Server.IoC
             IoCManager.Register<ServerInfoManager>();
             IoCManager.Register<PoissonDiskSampler>();
             IoCManager.Register<DiscordWebhook>();
+            // start-fishstation: IoC
+            IoCManager.Register<Content._FishStation.DiscordAuth.IServerDiscordAuthManager, _FishStation.DiscordAuth.DiscordAuthManager>();
+            // end-fishstation: IoC
             IoCManager.Register<ServerDbEntryManager>();
         }
     }
