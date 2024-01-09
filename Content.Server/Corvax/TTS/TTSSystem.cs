@@ -58,6 +58,10 @@ public sealed partial class TTSSystem : EntitySystem
             voiceId == null)
             return;
 
+        // Disables TTS for non actor entities
+        if (!HasComp<ActorComponent>(uid))
+            return;
+
         var voiceEv = new TransformSpeakerVoiceEvent(uid, voiceId);
         RaiseLocalEvent(uid, voiceEv);
         voiceId = voiceEv.VoiceId;
