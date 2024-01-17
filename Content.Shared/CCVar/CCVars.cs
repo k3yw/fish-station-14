@@ -1218,7 +1218,7 @@ namespace Content.Shared.CCVar
         ///     See vote.enabled, but specific to restart votes
         /// </summary>
         public static readonly CVarDef<bool> VoteRestartEnabled =
-            CVarDef.Create("vote.restart_enabled", true, CVar.SERVERONLY);
+            CVarDef.Create("vote.restart_enabled", false, CVar.SERVERONLY);
 
         /// <summary>
         ///     See vote.enabled, but specific to preset votes
