@@ -69,11 +69,13 @@ namespace Content.Server.GameTicking
                         var firstConnection = record != null &&
                                               Math.Abs((record.FirstSeenTime - record.LastSeenTime).TotalMinutes) < 1;
 
-                        if (LobbyEnabled && _roundStartCountdownHasNotStartedYetDueToNoPlayers)
-                        {
-                            _roundStartCountdownHasNotStartedYetDueToNoPlayers = false;
-                            _roundStartTime = _gameTiming.CurTime + LobbyDuration;
-                        }
+                    RaiseNetworkEvent(GetConnectionStatusMsg(), session.Channel);
+
+                    if (LobbyEnabled && _roundStartCountdownHasNotStartedYetDueToNoPlayers)
+                    {
+                        _roundStartCountdownHasNotStartedYetDueToNoPlayers = false;
+                        _roundStartTime = _gameTiming.CurTime + LobbyDuration;
+                    }
 
                         _chatManager.SendAdminAnnouncement(firstConnection
                             ? Loc.GetString("player-first-join-message", ("name", args.Session.Name))
