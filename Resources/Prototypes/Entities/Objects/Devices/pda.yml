@@ -531,6 +531,18 @@
     - Medical Doctor
 
 - type: entity
+  parent: BasePDA
+  id: PathologistPDA
+  name: КПК Патологоанатом
+  description: Пахнет миазмами...
+  components:
+  - type: Pda
+    id: PathologistIDCard
+    state: pda-patologoanatom
+  - type: Icon
+    state: pda-patologoanatom
+
+- type: entity
   parent: BaseMedicalPDA
   id: ParamedicPDA
   name: paramedic PDA

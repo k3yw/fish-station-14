@@ -375,6 +375,18 @@
       - state: cmo
 
 - type: entity
+  id: SpawnPointMedicalPathologist
+  parent: SpawnPointJobBase
+  name: Job спавн Патологоаната
+  components:
+  - type: SpawnPoint
+    job_id: MedicalPathologist
+  - type: Sprite
+    layers:
+      - state: green
+      - state: doctor
+
+- type: entity
   id: SpawnPointMedicalDoctor
   parent: SpawnPointJobBase
   name: medicaldoctor
