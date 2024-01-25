@@ -13,6 +13,7 @@
   color: "#9FED58"
   weight: -10
   roles:
+  - HeadOfPersonnel
   - Bartender
   - Borg
   - Botanist
@@ -20,7 +21,6 @@
   - Chaplain
   - Chef
   - Clown
-  - HeadOfPersonnel
   - Janitor
   - Lawyer
   - Librarian
@@ -32,13 +32,22 @@
   - ServiceWorker
 
 - type: department
+  id: Juridical
+  description: department-Juridical-description
+  color: "#987654"
+  roles:
+  - Magistrat
+  - IAA
+  - Lawyer
+
+- type: department
   id: Command
   description: department-Command-description
   color: "#334E6D"
   roles:
   - Captain
-  - IAA # Corvax-IAA
   - CentralCommandOfficial
+  - Magistrat
   - ChiefEngineer
   - ChiefMedicalOfficer
   - HeadOfPersonnel
@@ -55,6 +64,7 @@
   roles:
   - AtmosphericTechnician
   - ChiefEngineer
+  - SeniorEngineer
   - StationEngineer
   - TechnicalAssistant
 
@@ -70,6 +80,7 @@
   - MedicalIntern
   - Psychologist
   - Paramedic
+  - SeniorPhysician
 
 - type: department
   id: Security
@@ -78,11 +89,12 @@
   weight: 20
   roles:
   - HeadOfSecurity
+  - Warden
+  - SeniorOfficer
+  - Detective
+  - SecurityOfficer
   - Brigmedic
   - SecurityCadet
-  - SecurityOfficer
-  - Detective
-  - Warden
 
 - type: department
   id: Science
@@ -90,6 +102,7 @@
   color: "#D381C9"
   roles:
   - ResearchDirector
+  - SeniorResearcher
   - Scientist
   - ResearchAssistant
 
