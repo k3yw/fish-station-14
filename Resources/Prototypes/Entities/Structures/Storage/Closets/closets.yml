@@ -218,6 +218,7 @@
       - id: ClothingUniformJumpsuitMedicalDoctor
       - id: HandheldHealthAnalyzer
       - id: BoxForensicPad
+        amount: 2
       - id: ClothingHeadsetPatologoanatom
       - id: HeadSkeleton
       - id: ClothingHeadHatPatologonatHat
@@ -226,3 +227,4 @@
       - id: ClothingShoesColorBlack
       - id: ClothingOuterHospitalGown
         amount: 2
+      - id: ForensicScanner

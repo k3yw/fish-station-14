@@ -244,6 +244,13 @@
 
 - type: statusIcon
   parent: JobIcon
+  id: JobIconPathologist
+  icon:
+    sprite:  Interface/Misc/job_icons.rsi
+    state: pathologist_ico
+
+- type: statusIcon
+  parent: JobIcon
   id: JobIconParamedic
   icon:
     sprite: Interface/Misc/job_icons.rsi
