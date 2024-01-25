@@ -145,3 +145,6 @@
 
 - type: playTimeTracker
   id: JobSeniorOfficer
+
+- type: playTimeTracker
+  id: JobMagistrat

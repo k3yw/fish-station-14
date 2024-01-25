@@ -151,6 +151,24 @@
 
 - type: entity
   parent: ClothingHeadsetAlt
+  id: ClothingHeadsetAltJuridical
+  name: гарнитура магистрата
+  description: Весь во внимании.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyJuridical
+      - EncryptionKeySecurity
+      - EncryptionKeyCommand
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/juridical.rsi
+  - type: Clothing
+    sprite: Clothing/Ears/Headsets/juridical.rsi
+
+- type: entity
+  parent: ClothingHeadsetAlt
   id: ClothingHeadsetAltFreelancer
   name: freelancer's over-ear headset
   components:

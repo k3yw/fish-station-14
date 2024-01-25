@@ -1,6 +1,7 @@
 job-name-senior-engineer = ведущий инженер
 job-name-senior-physician = ведущий врач
 job-name-senior-officer = инструктор СБ
+job-name-magistrat = магистрат
 job-name-senior-researcher = ведущий учёный
 job-name-warden = смотритель
 job-name-security = офицер СБ
