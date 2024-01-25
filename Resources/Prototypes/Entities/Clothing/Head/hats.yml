@@ -124,6 +124,18 @@
 
 - type: entity
   parent: ClothingHeadBase
+  id: ClothingHeadHatPatologonatHat
+  name: шапочка патологоаната
+  description: Черная шапочка пропитанная запахом гнили
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/pathologist_helmet.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/pathologist_helmet.rsi
+
+
+- type: entity
+  parent: ClothingHeadBase
   id: ClothingHeadHatBeretBrigmedic
   name: medical beret
   description: White beret, looks like a cream pie on the head.
