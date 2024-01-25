@@ -531,7 +531,7 @@
     - Medical Doctor
 
 - type: entity
-  parent: BasePDA
+  parent: BaseMedicalPDA
   id: PathologistPDA
   name: КПК Патологоанатом
   description: Пахнет миазмами...
@@ -539,8 +539,14 @@
   - type: Pda
     id: PathologistIDCard
     state: pda-patologoanatom
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentVColor: "#447987"
   - type: Icon
     state: pda-patologoanatom
+  - type: GuideHelp
+    guides:
+    - Medical Doctor
 
 - type: entity
   parent: BaseMedicalPDA
