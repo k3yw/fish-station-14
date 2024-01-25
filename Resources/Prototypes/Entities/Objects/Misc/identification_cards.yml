@@ -852,3 +852,18 @@
     layers:
     - state: default
     - state: idseniorofficer
+
+
+#Mosley
+
+- type: entity
+  parent: IDCardStandard
+  id: MagistratIDCard
+  name: ID карта магистрата
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+    - state: idmagistrat
+  - type: PresetIdCard
+    job: Magistrat
