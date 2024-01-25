@@ -78,6 +78,7 @@
   weight: 20
   roles:
   - HeadOfSecurity
+  - Brigmedic
   - SecurityCadet
   - SecurityOfficer
   - Detective
