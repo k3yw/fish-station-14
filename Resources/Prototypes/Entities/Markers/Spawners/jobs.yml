@@ -234,12 +234,35 @@
       - state: librarian
 
 - type: entity
+  id: SpawnPointMagistrat
+  parent: SpawnPointJobBase
+  name: магистрат
+  components:
+  - type: SpawnPoint
+    job_id: Magistrat
+  - type: Sprite
+    layers:
+      - state: green
+
+- type: entity
   id: SpawnPointLawyer
   parent: SpawnPointJobBase
   name: lawyer
   components:
   - type: SpawnPoint
-    job_id: IAA # Corvax-IAA: Lawyer replaced with IAA
+    job_id: Lawyer
+  - type: Sprite
+    layers:
+      - state: green
+      - state: lawyer
+
+- type: entity
+  id: SpawnPointIAA
+  parent: SpawnPointJobBase
+  name: iaa
+  components:
+  - type: SpawnPoint
+    job_id: IAA
   - type: Sprite
     layers:
       - state: green
@@ -609,3 +632,52 @@
     layers:
       - state: green
       - state: zookeeper
+
+#Seniors KAK VI ZAEBALI MRAZI
+- type: entity
+  id: SpawnPointSeniorEngineer
+  parent: SpawnPointJobBase
+  name: seniorengineer
+  components:
+  - type: SpawnPoint
+    job_id: SeniorEngineer
+  - type: Sprite
+    layers:
+      - state: green
+      - state: seniorengineer
+      
+- type: entity
+  id: SpawnPointSeniorPhysician
+  parent: SpawnPointJobBase
+  name: seniorphysician
+  components:
+  - type: SpawnPoint
+    job_id: SeniorPhysician
+  - type: Sprite
+    layers:
+      - state: green
+      - state: seniorphysician
+      
+- type: entity
+  id: SpawnPointSeniorOfficer
+  parent: SpawnPointJobBase
+  name: seniorofficer
+  components:
+  - type: SpawnPoint
+    job_id: SeniorOfficer
+  - type: Sprite
+    layers:
+      - state: green
+      - state: seniorofficer
+      
+- type: entity
+  id: SpawnPointSeniorResearcher
+  parent: SpawnPointJobBase
+  name: seniorresearcher
+  components:
+  - type: SpawnPoint
+    job_id: SeniorResearcher
+  - type: Sprite
+    layers:
+      - state: green
+      - state: seniorresearcher
