@@ -142,3 +142,6 @@
 #Новые роли трекер
 - type: playTimeTracker
   id: JobMedicalPathologist
+
+- type: playTimeTracker
+  id: JobSeniorOfficer
