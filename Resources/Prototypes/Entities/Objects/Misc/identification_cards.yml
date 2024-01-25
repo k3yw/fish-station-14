@@ -170,6 +170,18 @@
 
 - type: entity
   parent: IDCardStandard
+  id: PathologistIDCard
+  name: ID Карта патологоанатом
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idpatologoanatom
+  - type: PresetIdCard
+    job: MedicalPathologist
+
+- type: entity
+  parent: IDCardStandard
   id: ParamedicIDCard
   name: paramedic ID card
   components:
@@ -633,6 +645,7 @@
     - JobIconBartender
     - JobIconHeadOfSecurity
     - JobIconMedicalDoctor
+    - JobIconMedicalPathologist
     - JobIconParamedic
     - JobIconChef
     - JobIconWarden
