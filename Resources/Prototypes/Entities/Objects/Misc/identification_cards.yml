@@ -879,3 +879,15 @@
     - state: idinvestigator
   - type: PresetIdCard
     job: Investigator
+
+- type: entity
+  parent: IDCardStandard
+  id: BlueshieldIDCard
+  name: ID карта офицера "Синий Щит"
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+    - state: idblueshield
+  - type: PresetIdCard
+    job: Blueshield
