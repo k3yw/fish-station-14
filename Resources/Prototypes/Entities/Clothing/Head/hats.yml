@@ -834,6 +834,19 @@
   - type: Clothing
     sprite: Clothing/Head/Hats/gladiator.rsi
 
+#Mosley
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatInvestigatorHat
+  name: фуражка следователя
+  description: Темная фуражка с серебряными акцентами, принадлежит следователю, воплощая авторитет и профессионализм в каждой детали.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/investigatorhat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/investigatorhat.rsi
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatPartyRed

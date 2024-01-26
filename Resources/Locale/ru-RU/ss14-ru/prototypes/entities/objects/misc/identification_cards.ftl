@@ -127,3 +127,5 @@ ent-SeniorOfficerIDCard = ID карта инструктора СБ
     .desc = { ent-IDCardStandard.desc }
 ent-MagistratIDCard = ID карта магистрата
     .desc = { ent-IDCardStandard.desc }
+ent-InvestigatorIDCard = ID карта следователя
+    .desc = { ent-IDCardStandard.desc }
