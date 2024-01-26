@@ -151,4 +151,7 @@
 
 - type: playTimeTracker
   id: IAA
+
+- type: playTimeTracker
+  id: JobInvestigator
   

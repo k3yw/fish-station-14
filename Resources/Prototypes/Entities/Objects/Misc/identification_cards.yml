@@ -867,3 +867,15 @@
     - state: idmagistrat
   - type: PresetIdCard
     job: Magistrat
+
+- type: entity
+  parent: IDCardStandard
+  id: InvestigatorIDCard
+  name: ID карта следователя
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idinvestigator
+  - type: PresetIdCard
+    job: Investigator

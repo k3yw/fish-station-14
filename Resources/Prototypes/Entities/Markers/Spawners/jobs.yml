@@ -681,3 +681,16 @@
     layers:
       - state: green
       - state: seniorresearcher
+
+#Mosley
+
+- type: entity
+  id: SpawnPointInvestigator
+  parent: SpawnPointJobBase
+  name: следователь
+  components:
+  - type: SpawnPoint
+    job_id: Investigator
+  - type: Sprite
+    layers:
+      - state: green
