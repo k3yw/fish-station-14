@@ -4,14 +4,9 @@
   description: job-description-magistrat
   playTimeTracker: JobMagistrat
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Command
-      time: 54000
-    - !type:DepartmentTimeRequirement
-      department: Juridical
-      time: 21600
-    - !type:OverallPlaytimeRequirement
-      time: 36000
+    - !type:RoleTimeRequirement
+      role: IAA
+      time: 36000 
   startingGear: MagistratGear
   setPreference: true
   icon: "JobIconMagistrat"

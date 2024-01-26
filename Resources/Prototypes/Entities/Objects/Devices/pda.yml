@@ -1049,3 +1049,17 @@
       whitelist:
         components:
           - Cartridge
+
+#Mosley
+
+- type: entity
+  parent: BasePDA
+  id: MagistratPDA
+  name: КПК магистрата
+  description: Изможденный временем, влагает в себя аромат закона и судебной власти.
+  components:
+  - type: Pda
+    id: MagistratIDCard
+    state: pda-magistrat
+  - type: Icon
+    state: pda-magistrat
