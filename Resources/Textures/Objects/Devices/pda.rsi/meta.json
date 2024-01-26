@@ -232,6 +232,12 @@
     {
       "name": "equipped-IDCARD",
       "directions": 4
+    },
+    {
+      "name": "pda-iaa"
+    },
+    {
+      "name": "pda-magistrat"
     }
   ]
 }
