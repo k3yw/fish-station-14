@@ -11,6 +11,10 @@
   name: id-card-access-level-head-of-personnel
 
 - type: accessLevel
+  id: Blueshield
+  name: id-card-access-level-blueshield
+
+- type: accessLevel
   id: Magistrat
   name: id-card-access-level-magistrat
 
@@ -20,6 +24,7 @@
   - Command
   - Captain
   - HeadOfPersonnel
+  - Blueshield
   - Cryogenics
   - Magistrat
 

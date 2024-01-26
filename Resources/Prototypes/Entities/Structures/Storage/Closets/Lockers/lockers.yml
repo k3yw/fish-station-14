@@ -450,7 +450,7 @@
     stateDoorOpen: hop_open
     stateDoorClosed: representative_door
 
-#магистрат
+#Mosley
 - type: entity
   id: LockerMagistrat
   parent: LockerBaseSecure
@@ -476,3 +476,33 @@
     - id: Flash
     - id: ClothingHeadsetMagistrat
     - id: RubberStampMagistrat
+
+
+- type: entity
+  id: LockerBlueshield
+  parent: LockerBaseSecure
+  name: шкаф офицера "Синий Щит"
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: blueshield
+    stateDoorOpen: blueshield_open
+    stateDoorClosed: blueshield_door
+  - type: AccessReader
+    access: [ [ "Blueshield" ] ]
+
+- type: entity
+  id: LockerBlueshieldFilled
+  suffix: Filled
+  parent: LockerBlueshield
+  components:
+  - type: StorageFill
+    contents:
+    - id: MedkitAdvancedFilled
+    - id: WeaponDisabler
+      amount: 1
+    - id: WeaponSubMachineGunDrozd
+      amount: 1
+    - id: MagazinePistolSubMachineGun
+      amount: 2
+    - id: ClothingBackpackBlueshield

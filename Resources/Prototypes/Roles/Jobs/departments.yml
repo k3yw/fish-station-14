@@ -51,6 +51,7 @@
   - ChiefMedicalOfficer
   - HeadOfPersonnel
   - HeadOfSecurity
+  - Blueshield
   - ResearchDirector
   - Quartermaster
   primary: false
