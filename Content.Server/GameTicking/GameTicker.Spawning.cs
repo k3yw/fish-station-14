@@ -32,6 +32,9 @@ namespace Content.Server.GameTicking
         public const string ObserverPrototypeName = "MobObserver";
 
         [ValidatePrototypeId<EntityPrototype>]
+        public const string PremiumObserverPrototypeName = "MobObserverPremium";
+
+        [ValidatePrototypeId<EntityPrototype>]
         public const string AdminObserverPrototypeName = "AdminObserver";
 
         /// <summary>
@@ -335,17 +338,18 @@ namespace Content.Server.GameTicking
             }
 
             var name = GetPlayerProfile(player).Name;
-            var ghost = SpawnObserverMob();
+            bool hasPremium = _adminManager.IsPremiumUser(player);
+            var ghost = SpawnObserverMob(hasPremium);
             _metaData.SetEntityName(ghost, name);
             _ghost.SetCanReturnToBody(ghost, false);
             _mind.TransferTo(mind.Value, ghost);
         }
 
         #region Mob Spawning Helpers
-        private EntityUid SpawnObserverMob()
+        private EntityUid SpawnObserverMob(bool isPremium = false)
         {
             var coordinates = GetObserverSpawnPoint();
-            return EntityManager.SpawnEntity(ObserverPrototypeName, coordinates);
+            return EntityManager.SpawnEntity(isPremium ? PremiumObserverPrototypeName : ObserverPrototypeName, coordinates);
         }
         #endregion
 
