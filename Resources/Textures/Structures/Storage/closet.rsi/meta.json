@@ -134,6 +134,15 @@
       "name": "cabinet_open"
     },
     {
+      "name": "mag"
+    },
+    {
+      "name": "mag_door"
+    },
+    {
+      "name": "mag_open"
+    },
+    {
       "name": "cap"
     },
     {

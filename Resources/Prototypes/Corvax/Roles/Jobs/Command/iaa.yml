@@ -11,7 +11,7 @@
       time: 18000
   startingGear: IAAGear
   icon: "JobIconIAA"
-  supervisors: job-supervisors-centcom
+  supervisors: job-supervisors-magistrat
   canBeAntag: false
   access:
   - Service
@@ -32,7 +32,7 @@
     shoes: ClothingShoesColorBlack
     id: IAAPDA
     eyes: ClothingEyesGlassesSunglasses
-    ears: ClothingHeadsetJuridical
+    ears: ClothingHeadsetIAA
     neck: ClothingNeckLawyerbadge
   inhand:
     - BriefcaseIAAFilled
