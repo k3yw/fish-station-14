@@ -136,6 +136,12 @@
       "name": "paper_talisman_travel_unused"
     },
     {
+      "name": "paper_stamp-magistrat"
+    },
+    {
+      "name": "paper_stamp-ntr"
+    },
+    {
       "name": "paper_words"
     },
     {
@@ -253,6 +259,12 @@
     },
     {
       "name": "paper_stamp-psychologist"
+    },
+    {
+      "name": "stamp-magistrat"
+    },
+    {
+      "name": "stamp-ntr"
     }
   ]
 }

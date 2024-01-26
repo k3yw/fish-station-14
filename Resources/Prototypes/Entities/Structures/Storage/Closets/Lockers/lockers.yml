@@ -449,3 +449,30 @@
     stateBaseClosed: hop
     stateDoorOpen: hop_open
     stateDoorClosed: representative_door
+
+#магистрат
+- type: entity
+  id: LockerMagistrat
+  parent: LockerBaseSecure
+  name: шкаф магистрата
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: mag
+    stateDoorOpen: mag_open
+    stateDoorClosed: mag_door
+  - type: AccessReader
+    access: [["Magistrat"]]
+    
+- type: entity
+  id: LockerMagistratFilled
+  suffix: Filled
+  parent: LockerMagistrat
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxEncryptionKeyJuridical
+    - id: WeaponDisabler
+    - id: Flash
+    - id: ClothingHeadsetMagistrat
+    - id: RubberStampMagistrat
