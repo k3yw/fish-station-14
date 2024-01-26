@@ -1061,5 +1061,29 @@
   - type: Pda
     id: MagistratIDCard
     state: pda-magistrat
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: PdaBorderColor
+    borderColor: "#6f6192"
+    accentVColor: "#DFDFDF"
   - type: Icon
     state: pda-magistrat
+
+- type: entity
+  parent: BasePDA
+  id: InvestigatorPDA
+  name: КПК следователя
+  description: Выглядит элегантно.
+  components:
+  - type: Pda
+    id: InvestigatorIDCard
+    state: pda-investigator
+  - type: PdaBorderColor
+    borderColor: "#A32D26"
+    accentVColor: "#DFDFDF"
+  - type: Icon
+    state: pda-investigator
