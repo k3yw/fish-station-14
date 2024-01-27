@@ -7,12 +7,9 @@
     - !type:RoleTimeRequirement
       role: JobChemist
       time: 21600
-    - !type:RoleTimeRequirement
-      role: JobMedicalDoctor
-      time: 21600
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 36000
+      time: 18000
   startingGear: SeniorPhysicianGear
   icon: "JobIconSeniorPhysician"
   supervisors: job-supervisors-cmo
