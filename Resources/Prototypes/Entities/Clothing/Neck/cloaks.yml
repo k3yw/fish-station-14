@@ -202,6 +202,15 @@
 
 - type: entity
   parent: ClothingNeckBase
+  id: ClothingNeckCloakNanotrasenRepresentive
+  name: плащ представителя NanoTrasen
+  description: Величественный темный плащ, символизирующий NanoTrasen.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Cloaks/ntr.rsi
+
+- type: entity
+  parent: ClothingNeckBase
   id: ClothingNeckCloakAce
   name: pilot's cloak
   description: Cloak awarded to Nanotrasen's finest space aces.

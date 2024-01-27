@@ -4,9 +4,9 @@
   description: job-description-atmostech
   playTimeTracker: JobAtmosphericTechnician
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 24000 #6,7 hrs # fish-station-RoleTime
+    - !type:RoleTimeRequirement
+      role: JobStationEngineer
+      time: 24000 
   startingGear: AtmosphericTechnicianGear
   icon: "JobIconAtmosphericTechnician"
   supervisors: job-supervisors-ce

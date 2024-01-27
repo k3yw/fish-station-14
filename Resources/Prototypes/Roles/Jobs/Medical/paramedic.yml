@@ -6,7 +6,7 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobMedicalDoctor
-      time: 10800 #3 hrs # fish-station-RoleTime
+      time: 18000 #3 hrs # fish-station-RoleTime
     - !type:OverallPlaytimeRequirement
       time: 45000 # 12,5 hrs # fish-station-RoleTime
   startingGear: ParamedicGear

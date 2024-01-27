@@ -234,12 +234,35 @@
       - state: librarian
 
 - type: entity
+  id: SpawnPointMagistrat
+  parent: SpawnPointJobBase
+  name: магистрат
+  components:
+  - type: SpawnPoint
+    job_id: Magistrat
+  - type: Sprite
+    layers:
+      - state: green
+
+- type: entity
   id: SpawnPointLawyer
   parent: SpawnPointJobBase
   name: lawyer
   components:
   - type: SpawnPoint
-    job_id: IAA # Corvax-IAA: Lawyer replaced with IAA
+    job_id: Lawyer
+  - type: Sprite
+    layers:
+      - state: green
+      - state: lawyer
+
+- type: entity
+  id: SpawnPointIAA
+  parent: SpawnPointJobBase
+  name: iaa
+  components:
+  - type: SpawnPoint
+    job_id: IAA
   - type: Sprite
     layers:
       - state: green
@@ -375,6 +398,18 @@
       - state: cmo
 
 - type: entity
+  id: SpawnPointMedicalPathologist
+  parent: SpawnPointJobBase
+  name: Job спавн Патологоаната
+  components:
+  - type: SpawnPoint
+    job_id: MedicalPathologist
+  - type: Sprite
+    layers:
+      - state: green
+      - state: doctor
+
+- type: entity
   id: SpawnPointMedicalDoctor
   parent: SpawnPointJobBase
   name: medicaldoctor
@@ -491,6 +526,8 @@
   parent: SpawnPointJobBase
   name: brigmedic
   components:
+  - type: SpawnPoint
+    job_id: Brigmedic
   - type: Sprite
     layers:
       - state: green
@@ -595,3 +632,87 @@
     layers:
       - state: green
       - state: zookeeper
+
+#Seniors KAK VI ZAEBALI MRAZI
+- type: entity
+  id: SpawnPointSeniorEngineer
+  parent: SpawnPointJobBase
+  name: seniorengineer
+  components:
+  - type: SpawnPoint
+    job_id: SeniorEngineer
+  - type: Sprite
+    layers:
+      - state: green
+      - state: seniorengineer
+      
+- type: entity
+  id: SpawnPointSeniorPhysician
+  parent: SpawnPointJobBase
+  name: seniorphysician
+  components:
+  - type: SpawnPoint
+    job_id: SeniorPhysician
+  - type: Sprite
+    layers:
+      - state: green
+      - state: seniorphysician
+      
+- type: entity
+  id: SpawnPointSeniorOfficer
+  parent: SpawnPointJobBase
+  name: seniorofficer
+  components:
+  - type: SpawnPoint
+    job_id: SeniorOfficer
+  - type: Sprite
+    layers:
+      - state: green
+      - state: seniorofficer
+      
+- type: entity
+  id: SpawnPointSeniorResearcher
+  parent: SpawnPointJobBase
+  name: seniorresearcher
+  components:
+  - type: SpawnPoint
+    job_id: SeniorResearcher
+  - type: Sprite
+    layers:
+      - state: green
+      - state: seniorresearcher
+
+#Mosley
+
+- type: entity
+  id: SpawnPointInvestigator
+  parent: SpawnPointJobBase
+  name: следователь
+  components:
+  - type: SpawnPoint
+    job_id: Investigator
+  - type: Sprite
+    layers:
+      - state: green
+
+- type: entity
+  id: SpawnPointNanotrasenRepresentive
+  parent: SpawnPointJobBase
+  name: представитель NanoTrasen
+  components:
+  - type: SpawnPoint
+    job_id: NanotrasenRepresentive
+  - type: Sprite
+    layers:
+      - state: green
+
+- type: entity
+  id: SpawnPointBlueshield
+  parent: SpawnPointJobBase
+  name: офицер "Синий Щит"
+  components:
+  - type: SpawnPoint
+    job_id: Blueshield
+  - type: Sprite
+    layers:
+      - state: green

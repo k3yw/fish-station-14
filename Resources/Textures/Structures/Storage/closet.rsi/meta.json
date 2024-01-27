@@ -8,6 +8,15 @@
   "license": "CC-BY-SA-3.0",
   "states": [
     {
+      "name": "patologoanatom"
+    },
+    {
+      "name": "patologoanatom_open"
+    },
+    {
+      "name": "patologoanatom_door"
+    },
+    {
       "name": "abductor"
     },
     {
@@ -101,6 +110,15 @@
       "name": "bomb"
     },
     {
+      "name": "blueshield"
+    },
+    {
+      "name": "blueshield_door"
+    },		
+    {
+      "name": "blueshield_open"
+    },	
+    {
       "name": "bomb_door"
     },
     {
@@ -123,6 +141,24 @@
     },
     {
       "name": "cabinet_open"
+    },
+    {
+      "name": "mag"
+    },
+    {
+      "name": "mag_door"
+    },
+    {
+      "name": "mag_open"
+    },
+    {
+      "name": "ntr"
+    },
+    {
+      "name": "ntr_door"
+    },
+    {
+      "name": "ntr_open"
     },
     {
       "name": "cap"

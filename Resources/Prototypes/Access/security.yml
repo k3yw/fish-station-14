@@ -18,6 +18,10 @@
   id: Detective
   name: id-card-access-level-detective
 
+- type: accessLevel
+  id: Investigator
+  name: id-card-access-level-investigator
+
 - type: accessGroup
   id: Security
   tags:
@@ -26,6 +30,7 @@
   - Armory
   - Brig
   - Detective
+  - Investigator
   - Cryogenics
 
 - type: accessGroup
