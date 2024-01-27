@@ -1075,6 +1075,18 @@
 
 - type: entity
   parent: BasePDA
+  id: NanotrasenRepresentivePDA
+  name: КПК представителя NanoTrasen
+  description: Представляет вашу идею.
+  components:
+  - type: Pda
+    id: NanotrasenRepresentiveIDCard
+    state: pda-ntr
+  - type: Icon
+    state: pda-ntr
+
+- type: entity
+  parent: BasePDA
   id: InvestigatorPDA
   name: КПК следователя
   description: Выглядит элегантно.

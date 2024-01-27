@@ -397,3 +397,10 @@
   icon:
     sprite: Interface/Misc/job_icons.rsi
     state: Blueshield
+
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconNanotrasenRepresentive
+  icon:
+    sprite: Interface/Misc/job_icons.rsi
+    state: NanotrasenRepresentive

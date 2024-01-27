@@ -150,8 +150,11 @@
   id: JobMagistrat
 
 - type: playTimeTracker
-  id: IAA
+  id: JobInvestigator
 
 - type: playTimeTracker
-  id: JobInvestigator
+  id: JobBlueshield
+  
+- type: playTimeTracker
+  id: JobNanotrasenRepresentive
   

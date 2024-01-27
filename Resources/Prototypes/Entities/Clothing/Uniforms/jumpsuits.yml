@@ -1465,3 +1465,14 @@
       coefficients:
         Slash: 0.9
         Piercing: 0.9
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitNTRepresentive
+  name: униформа представителя NanoTrasen
+  description: Черная униформа с золотистыми выделками, черными брюками и логотипом NanoTrasen - стиль бюрократии.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/ntr_suit.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/ntr_suit.rsi

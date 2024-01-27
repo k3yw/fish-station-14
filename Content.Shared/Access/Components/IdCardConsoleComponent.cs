@@ -69,6 +69,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Magistrat",
         "Maintenance",
         "Medical",
+        "NanotrasenRepresentive",
         "Quartermaster",
         "Research",
         "ResearchDirector",
