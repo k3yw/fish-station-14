@@ -6,7 +6,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 36000
+      time: 54000
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 36000
