@@ -5,8 +5,8 @@
   playTimeTracker: JobMagistrat
   requirements:
     - !type:RoleTimeRequirement
-      role: IAA
-      time: 36000 
+      role: JobIAA
+      time: 18000 
   startingGear: MagistratGear
   setPreference: true
   icon: "JobIconMagistrat"
