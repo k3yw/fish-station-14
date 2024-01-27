@@ -5,13 +5,13 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: Command
-    time: 54000
+    time: 42000
   - !type:DepartmentTimeRequirement
-    department: Security
-    time: 36000
+      department: Juridical
+      time: 18000
   startingGear: IAAGear
   icon: "JobIconIAA"
-  supervisors: job-supervisors-centcom
+  supervisors: job-supervisors-magistrat
   canBeAntag: false
   access:
   - Service

@@ -23,6 +23,9 @@
       "directions": 4
     },
     {
+      "name": "pda-patologoanatom"
+    },
+    {
       "name": "insert_overlay"
     },
     {
@@ -65,10 +68,19 @@
       "name": "pda-cmo"
     },
     {
+      "name": "pda-bs"
+    },
+    {
+      "name": "pda-ntr"
+    },
+    {
       "name": "pda-cook"
     },
     {
       "name": "pda-detective"
+    },
+    {
+      "name": "pda-investigator"
     },
     {
       "name": "pda-engineer"
@@ -229,6 +241,12 @@
     {
       "name": "equipped-IDCARD",
       "directions": 4
+    },
+    {
+      "name": "pda-iaa"
+    },
+    {
+      "name": "pda-magistrat"
     }
   ]
 }

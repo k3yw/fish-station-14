@@ -21,6 +21,7 @@
       accessLevels:
       - Armory
       - Atmospherics
+      - Blueshield
       - Bar
       - Brig
       - Detective
@@ -36,10 +37,12 @@
       - HeadOfPersonnel
       - HeadOfSecurity
       - Hydroponics
+      - Investigator
       - Janitor
       - Kitchen
       - Lawyer
       - Maintenance
+      - NanotrasenRepresentive
       - Medical
       - Quartermaster
       - Research

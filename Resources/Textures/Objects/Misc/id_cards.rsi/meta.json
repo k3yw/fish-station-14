@@ -11,6 +11,9 @@
       "name": "default"
     },
     {
+      "name": "idpatologoanatom"
+    },
+    {
       "name": "centcom"
     },
     {
@@ -50,6 +53,12 @@
       "name": "idboxer"
     },
     {
+      "name": "idblueshield"
+    },
+    {
+      "name": "idntr"
+    },
+    {
       "name": "idcaptain"
     },
     {
@@ -57,6 +66,12 @@
     },
     {
       "name": "idcentcom"
+    },
+    {
+      "name": "idmagistrat"
+    },
+    {
+      "name": "idinvestigator"
     },
     {
       "name": "idchaplain"

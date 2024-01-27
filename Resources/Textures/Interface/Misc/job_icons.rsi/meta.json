@@ -9,7 +9,16 @@
     },
     "states": [
         {
+            "name": "pathologist_ico"
+        },
+        {
             "name": "Detective"
+        },
+        {
+            "name": "Magistrat"
+        },
+        {
+            "name": "Investigator"
         },
         {
             "name": "QuarterMaster"
@@ -172,6 +181,12 @@
         },
         {
             "name": "HeadRevolutionary"
+        },
+        {
+            "name": "Blueshield"
+        },
+        {
+            "name": "NanotrasenRepresentive"
         },
         {
             "name": "MindShield"

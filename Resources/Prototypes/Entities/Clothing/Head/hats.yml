@@ -124,6 +124,18 @@
 
 - type: entity
   parent: ClothingHeadBase
+  id: ClothingHeadHatPatologonatHat
+  name: шапочка патологоаната
+  description: Черная шапочка пропитанная запахом гнили
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/pathologist_helmet.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/pathologist_helmet.rsi
+
+
+- type: entity
+  parent: ClothingHeadBase
   id: ClothingHeadHatBeretBrigmedic
   name: medical beret
   description: White beret, looks like a cream pie on the head.
@@ -822,6 +834,30 @@
   - type: Clothing
     sprite: Clothing/Head/Hats/gladiator.rsi
 
+#Mosley
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatInvestigatorHat
+  name: фуражка следователя
+  description: Темная фуражка с серебряными акцентами, принадлежит следователю, воплощая авторитет и профессионализм в каждой детали.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/investigatorhat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/investigatorhat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretNavyBlue
+  name: темно-синий офицерский берет
+  description: Темно-синий берет, украшенный щитом — серебряным воздушным змеем с выгравированным мечом — службы безопасности Нанотрейзен, объявляющим миру, что его владелец является защитником Нанотрейзен.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beret_navyblue.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beret_navyblue.rsi
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatPartyRed
@@ -837,6 +873,22 @@
       - DroneUsable
       - WhitelistChameleon
       - HamsterWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCapNtr
+  name: фуражка представителя Nanotrasen
+  description: Шикарная, стильная фуражка представителя NanoTrasen.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/capntr.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/capntr.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - HamsterWearable
 
 - type: entity
   parent: ClothingHeadHatPartyRed

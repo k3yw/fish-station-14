@@ -138,3 +138,23 @@
 
 - type: playTimeTracker
   id: JobZookeeper
+
+#Новые роли трекер
+- type: playTimeTracker
+  id: JobMedicalPathologist
+
+- type: playTimeTracker
+  id: JobSeniorOfficer
+
+- type: playTimeTracker
+  id: JobMagistrat
+
+- type: playTimeTracker
+  id: JobInvestigator
+
+- type: playTimeTracker
+  id: JobBlueshield
+  
+- type: playTimeTracker
+  id: JobNanotrasenRepresentive
+  
