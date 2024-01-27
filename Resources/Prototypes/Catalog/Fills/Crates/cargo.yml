@@ -1,6 +1,8 @@
 - type: entity
   id: CrateCargoLuxuryHardsuit
   parent: CratePirate
+  name: luxury mining hardsuit crate
+  description: Finally, a hardsuit Quartermasters could call their own. Centcomm has heard you, now stop asking.
   components:
   - type: StorageFill
     contents:
@@ -149,7 +151,11 @@
       orGroup: Weapons
     - id: Shovel
       prob: 0.01
+<<<<<<< HEAD
       orGroup: Weapons  
+=======
+      orGroup: Weapons
+>>>>>>> discordauth
     - id: WeaponWaterPistol
       prob: 0.01
       orGroup: Weapons
@@ -256,10 +262,10 @@
       orGroup: Swag
     - id: ClothingEyesGlassesGarGiga
       prob: 0.01
-      orGroup: Swag   
+      orGroup: Swag
     - id: ClothingEyesGlassesGarOrange
       prob: 0.01
-      orGroup: Swag      
+      orGroup: Swag
     - id: ClothingHeadHatChameleon
       prob: 0.01
       orGroup: Swag
@@ -298,6 +304,9 @@
       prob: 0.01
       orGroup: Plushies
     - id: PlushieMoth
+      prob: 0.01
+      orGroup: Plushies
+    - id: PlushieArachind
       prob: 0.01
       orGroup: Plushies
     #useful
@@ -382,4 +391,8 @@
       orGroup: NotUseful
     - id: WeakKudzu
       prob: 0.01
+<<<<<<< HEAD
       orGroup: NotUseful   
+=======
+      orGroup: NotUseful
+>>>>>>> discordauth

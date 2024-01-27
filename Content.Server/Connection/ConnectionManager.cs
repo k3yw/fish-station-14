@@ -123,15 +123,24 @@ namespace Content.Server.Connection
                 var minMinutesAge = _cfg.GetCVar(CCVars.PanicBunkerMinAccountAge);
                 var record = await _dbManager.GetPlayerRecordByUserId(userId);
                 var validAccountAge = record != null &&
-                                        record.FirstSeenTime.CompareTo(DateTimeOffset.Now - TimeSpan.FromMinutes(minMinutesAge)) <= 0;
+                                      record.FirstSeenTime.CompareTo(DateTimeOffset.Now - TimeSpan.FromMinutes(minMinutesAge)) <= 0;
+                var bypassAllowed = _cfg.GetCVar(CCVars.BypassBunkerWhitelist) && await _db.GetWhitelistStatusAsync(userId);
 
                 // Use the custom reason if it exists & they don't have the minimum account age
+<<<<<<< HEAD
                 if (customReason != string.Empty && !validAccountAge)
+=======
+                if (customReason != string.Empty && !validAccountAge && !bypassAllowed)
+>>>>>>> discordauth
                 {
                     return (ConnectionDenyReason.Panic, customReason, null);
                 }
 
+<<<<<<< HEAD
                 if (showReason && !validAccountAge)
+=======
+                if (showReason && !validAccountAge && !bypassAllowed)
+>>>>>>> discordauth
                 {
                     return (ConnectionDenyReason.Panic,
                         Loc.GetString("panic-bunker-account-denied-reason",
@@ -143,12 +152,20 @@ namespace Content.Server.Connection
                 var haveMinOverallTime = overallTime != null && overallTime.TimeSpent.TotalHours > minOverallHours;
 
                 // Use the custom reason if it exists & they don't have the minimum time
+<<<<<<< HEAD
                 if (customReason != string.Empty && !haveMinOverallTime)
+=======
+                if (customReason != string.Empty && !haveMinOverallTime && !bypassAllowed)
+>>>>>>> discordauth
                 {
                     return (ConnectionDenyReason.Panic, customReason, null);
                 }
 
+<<<<<<< HEAD
                 if (showReason && !haveMinOverallTime)
+=======
+                if (showReason && !haveMinOverallTime && !bypassAllowed)
+>>>>>>> discordauth
                 {
                     return (ConnectionDenyReason.Panic,
                         Loc.GetString("panic-bunker-account-denied-reason",
@@ -172,7 +189,7 @@ namespace Content.Server.Connection
                 }
                 // Corvax-VPNGuard-End
 
-                if (!validAccountAge || !haveMinOverallTime || denyVpn) // Corvax-VPNGuard
+                if ((!validAccountAge || !haveMinOverallTime || denyVpn) && !bypassAllowed) // Corvax-VPNGuard
                 {
                     return (ConnectionDenyReason.Panic, Loc.GetString("panic-bunker-account-denied"), null);
                 }

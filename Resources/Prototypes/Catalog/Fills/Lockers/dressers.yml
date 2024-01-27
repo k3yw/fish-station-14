@@ -61,6 +61,10 @@
       - id: ClothingUniformJumpsuitHoSAlt
       - id: ClothingUniformJumpskirtHosFormal
       - id: ClothingUniformJumpsuitHosFormal
+<<<<<<< HEAD
+=======
+      - id: ClothingMaskNeckGaiter
+>>>>>>> discordauth
 
 - type: entity
   id: DresserQuarterMasterFilled

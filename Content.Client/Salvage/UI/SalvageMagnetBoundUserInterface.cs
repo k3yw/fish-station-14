@@ -21,6 +21,10 @@ public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
     {
         base.Open();
         _window = new OfferingWindow();
+<<<<<<< HEAD
+=======
+        _window.Title = Loc.GetString("salvage-magnet-window-title");
+>>>>>>> discordauth
         _window.OnClose += Close;
         _window.OpenCenteredLeft();
     }

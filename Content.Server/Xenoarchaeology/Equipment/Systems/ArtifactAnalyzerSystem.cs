@@ -51,8 +51,6 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         SubscribeLocalEvent<ActiveArtifactAnalyzerComponent, ComponentShutdown>(OnAnalyzeEnd);
         SubscribeLocalEvent<ActiveArtifactAnalyzerComponent, PowerChangedEvent>(OnPowerChanged);
 
-        SubscribeLocalEvent<ArtifactAnalyzerComponent, UpgradeExamineEvent>(OnUpgradeExamine);
-        SubscribeLocalEvent<ArtifactAnalyzerComponent, RefreshPartsEvent>(OnRefreshParts);
         SubscribeLocalEvent<ArtifactAnalyzerComponent, ItemPlacedEvent>(OnItemPlaced);
         SubscribeLocalEvent<ArtifactAnalyzerComponent, ItemRemovedEvent>(OnItemRemoved);
 
@@ -82,7 +80,11 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
             if (active.AnalysisPaused)
                 continue;
 
+<<<<<<< HEAD
             if (_timing.CurTime - active.StartTime < scan.AnalysisDuration * scan.AnalysisDurationMulitplier - active.AccumulatedRunTime)
+=======
+            if (_timing.CurTime - active.StartTime < scan.AnalysisDuration - active.AccumulatedRunTime)
+>>>>>>> discordauth
                 continue;
 
             FinishScan(uid, scan, active);
@@ -199,7 +201,7 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         {
             artifact = analyzer.LastAnalyzedArtifact;
             msg = GetArtifactScanMessage(analyzer);
-            totalTime = analyzer.AnalysisDuration * analyzer.AnalysisDurationMulitplier;
+            totalTime = analyzer.AnalysisDuration;
             if (TryComp<ItemPlacerComponent>(component.AnalyzerEntity, out var placer))
                 canScan = placer.PlacedEntities.Any();
             canPrint = analyzer.ReadyToPrint;
@@ -426,6 +428,7 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
 
     [PublicAPI]
     public void PauseScan(EntityUid uid, ArtifactAnalyzerComponent? component = null, ActiveArtifactAnalyzerComponent? active = null)
+<<<<<<< HEAD
     {
         if (!Resolve(uid, ref component, ref active) || active.AnalysisPaused)
             return;
@@ -452,15 +455,31 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
     }
 
     private void OnRefreshParts(EntityUid uid, ArtifactAnalyzerComponent component, RefreshPartsEvent args)
+=======
+>>>>>>> discordauth
     {
-        var analysisRating = args.PartRatings[component.MachinePartAnalysisDuration];
+        if (!Resolve(uid, ref component, ref active) || active.AnalysisPaused)
+            return;
 
-        component.AnalysisDurationMulitplier = MathF.Pow(component.PartRatingAnalysisDurationMultiplier, analysisRating - 1);
+        active.AnalysisPaused = true;
+        // As we pause, we store what was already completed.
+        active.AccumulatedRunTime = (_timing.CurTime - active.StartTime) + active.AccumulatedRunTime;
+
+        if (Exists(component.Console))
+            UpdateUserInterface(component.Console.Value);
     }
 
-    private void OnUpgradeExamine(EntityUid uid, ArtifactAnalyzerComponent component, UpgradeExamineEvent args)
+    [PublicAPI]
+    public void ResumeScan(EntityUid uid, ArtifactAnalyzerComponent? component = null, ActiveArtifactAnalyzerComponent? active = null)
     {
-        args.AddPercentageUpgrade("analyzer-artifact-component-upgrade-analysis", component.AnalysisDurationMulitplier);
+        if (!Resolve(uid, ref component, ref active) || !active.AnalysisPaused)
+            return;
+
+        active.StartTime = _timing.CurTime;
+        active.AnalysisPaused = false;
+
+        if (Exists(component.Console))
+            UpdateUserInterface(component.Console.Value);
     }
 
     private void OnItemPlaced(EntityUid uid, ArtifactAnalyzerComponent component, ref ItemPlacedEvent args)

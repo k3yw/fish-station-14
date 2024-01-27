@@ -96,7 +96,11 @@
             acts: [ "Destruction" ]
           - !type:PlaySoundBehavior
             sound:
+<<<<<<< HEAD
               path: /Audio/Effects/metalbreak.ogg
+=======
+              collection: MetalBreak
+>>>>>>> discordauth
           - !type:SpawnEntitiesBehavior
             spawn:
               SheetSteel1:
@@ -162,7 +166,11 @@
     messages: WindowMessages
   - type: Repairable
   - type: Damageable
+<<<<<<< HEAD
     damageContainer: StructuralInorganic 
+=======
+    damageContainer: StructuralInorganic
+>>>>>>> discordauth
   - type: DamageVisuals
     thresholds: [8, 16, 25]
     damageDivisor: 3.333
@@ -174,12 +182,20 @@
       - trigger:
           !type:DamageTrigger
           damage: 300
+<<<<<<< HEAD
         behaviors:      
+=======
+        behaviors:
+>>>>>>> discordauth
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
           - !type:PlaySoundBehavior
             sound:
+<<<<<<< HEAD
               path: /Audio/Effects/metalbreak.ogg
+=======
+              collection: MetalBreak
+>>>>>>> discordauth
           - !type:SpawnEntitiesBehavior
             spawn:
               SheetSteel1:

@@ -224,6 +224,12 @@ namespace Content.Shared.CCVar
             GameRoleTimers = CVarDef.Create("game.role_timers", true, CVar.SERVER | CVar.REPLICATED);
 
         /// <summary>
+        /// Whether or not disconnecting inside of a cryopod should remove the character or just store them until they reconnect.
+        /// </summary>
+        public static readonly CVarDef<bool>
+            GameCryoSleepRejoining = CVarDef.Create("game.cryo_sleep_rejoining", false, CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
         ///     Whether a random position offset will be applied to the station on roundstart.
         /// </summary>
         public static readonly CVarDef<bool> StationOffset =
@@ -306,6 +312,15 @@ namespace Content.Shared.CCVar
             CVarDef.Create("game.panic_bunker.custom_reason", string.Empty, CVar.SERVERONLY);
 
         /// <summary>
+<<<<<<< HEAD
+=======
+        /// Allow bypassing the panic bunker if the user is whitelisted.
+        /// </summary>
+        public static readonly CVarDef<bool> BypassBunkerWhitelist =
+            CVarDef.Create("game.panic_bunker.whitelisted_can_bypass", true, CVar.SERVERONLY);
+
+        /// <summary>
+>>>>>>> discordauth
         /// Make people bonk when trying to climb certain objects like tables.
         /// </summary>
         public static readonly CVarDef<bool> GameTableBonk =
@@ -350,6 +365,12 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<float> RoundRestartTime =
             CVarDef.Create("game.round_restart_time", 120f, CVar.SERVERONLY);
+
+        /// <summary>
+        /// The prototype to use for secret weights.
+        /// </summary>
+        public static readonly CVarDef<string> SecretWeightPrototype =
+            CVarDef.Create("game.secret_weight_prototype", "Secret", CVar.SERVERONLY);
 
         /*
          * Discord
@@ -497,6 +518,9 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<float> TipFrequencyInRound =
             CVarDef.Create("tips.in_game_frequency", 60f * 3);
+
+        public static readonly CVarDef<string> LoginTipsDataset =
+            CVarDef.Create("tips.login_dataset", "Tips");
 
         /*
          * Console
@@ -807,7 +831,11 @@ namespace Content.Shared.CCVar
 
         /// <summary>
         ///     The threshold of minutes to appear as a "new player" in the ahelp menu
+<<<<<<< HEAD
         ///     If 0, appearing as a new player is disabled. 
+=======
+        ///     If 0, appearing as a new player is disabled.
+>>>>>>> discordauth
         /// </summary>
         public static readonly CVarDef<int> NewPlayerThreshold =
             CVarDef.Create("admin.new_player_threshold", 0, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
@@ -1233,7 +1261,19 @@ namespace Content.Shared.CCVar
         ///     See vote.enabled, but specific to restart votes
         /// </summary>
         public static readonly CVarDef<bool> VoteRestartEnabled =
-            CVarDef.Create("vote.restart_enabled", true, CVar.SERVERONLY);
+            CVarDef.Create("vote.restart_enabled", false, CVar.SERVERONLY);
+
+        /// <summary>
+        ///     Config for when the restart vote should be allowed to be called regardless with less than this amount of players.
+        /// </summary>
+        public static readonly CVarDef<int> VoteRestartMaxPlayers =
+            CVarDef.Create("vote.restart_max_players", 20, CVar.SERVERONLY);
+
+        /// <summary>
+        ///     Config for when the restart vote should be allowed to be called based on percentage of ghosts.
+        ///
+        public static readonly CVarDef<int> VoteRestartGhostPercentage =
+            CVarDef.Create("vote.restart_ghost_percentage", 75, CVar.SERVERONLY);
 
         /// <summary>
         ///     See vote.enabled, but specific to preset votes
@@ -1564,6 +1604,9 @@ namespace Content.Shared.CCVar
 
         public static readonly CVarDef<int> ChatMaxMessageLength =
             CVarDef.Create("chat.max_message_length", 256, CVar.SERVER | CVar.REPLICATED);
+
+        public static readonly CVarDef<int> ChatMaxAnnouncementLength =
+            CVarDef.Create("chat.max_announcement_length", 256, CVar.SERVER | CVar.REPLICATED);
 
         public static readonly CVarDef<bool> ChatSanitizerEnabled =
             CVarDef.Create("chat.chat_sanitizer_enabled", true, CVar.SERVERONLY);
@@ -1952,22 +1995,6 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<string> ReplayAutoRecordTempDir =
             CVarDef.Create("replay.auto_record_temp_dir", "", CVar.SERVERONLY);
-
-        /*
-         * News
-         */
-
-        /// <summary>
-        /// Maximum number of characters that can be specified in the news name
-        /// </summary>
-        public static readonly CVarDef<int> NewsNameLimit =
-            CVarDef.Create("news.name_limit", 25, CVar.SERVER | CVar.REPLICATED);
-
-        /// <summary>
-        /// Maximum number of characters that can be specified in the news content
-        /// </summary>
-        public static readonly CVarDef<int> NewsContentLimit =
-            CVarDef.Create("news.content_limit", 2048, CVar.SERVER | CVar.REPLICATED);
 
         /*
          * Miscellaneous

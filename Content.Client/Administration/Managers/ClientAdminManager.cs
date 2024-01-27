@@ -138,5 +138,20 @@ namespace Content.Client.Administration.Managers
 
             return null;
         }
+
+        public bool IsPremiumUser(ICommonSession? sessionUser)
+        {
+            if (_player.LocalPlayer is { Session: { } session })
+            {
+                return IsPremiumUser(GetAdminData(session, true));
+            }
+
+            return false;
+        }
+
+        public bool IsPremiumUser(AdminData? adminData)
+        {
+            return adminData is null ? false : adminData.HasFlag(AdminFlags.PremiumAnnounce, true);
+        }
     }
 }

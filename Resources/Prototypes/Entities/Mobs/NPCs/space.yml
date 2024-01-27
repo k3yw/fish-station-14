@@ -268,6 +268,11 @@
       Male: UnisexArachnid
       Female: UnisexArachnid
       Unsexed: UnisexArachnid
+<<<<<<< HEAD
+=======
+  - type: TypingIndicator
+    proto: spider
+>>>>>>> discordauth
 
 - type: entity
   id: MobSpiderSpaceSalvage

@@ -68,6 +68,13 @@
     consumeEntities: false
   - type: TeslaEnergyBall
     spawnProto: TeslaMiniEnergyBall
+<<<<<<< HEAD
+=======
+    soundCollapse:
+      path: /Audio/Effects/tesla_collapse.ogg
+      params:
+        variation: 0.3
+>>>>>>> discordauth
   - type: LightningArcShooter
     arcDepth: 3
     maxLightningArc: 4

@@ -27,6 +27,12 @@ public sealed partial class FlatpackCreatorMenu : FancyWindow
 
     private readonly EntityUid _owner;
 
+<<<<<<< HEAD
+=======
+    [ValidatePrototypeId<EntityPrototype>]
+    public const string NoBoardEffectId = "FlatpackerNoBoardEffect";
+
+>>>>>>> discordauth
     private EntityUid? _currentBoard = EntityUid.Invalid;
     private EntityUid? _machinePreview;
 
@@ -47,6 +53,10 @@ public sealed partial class FlatpackCreatorMenu : FancyWindow
         PackButton.OnPressed += _ => PackButtonPressed?.Invoke();
 
         MaterialStorageControl.SetOwner(uid);
+<<<<<<< HEAD
+=======
+        InsertLabel.SetMarkup(Loc.GetString("flatpacker-ui-insert-board"));
+>>>>>>> discordauth
     }
 
     protected override void FrameUpdate(FrameEventArgs args)
@@ -63,15 +73,24 @@ public sealed partial class FlatpackCreatorMenu : FancyWindow
             !_itemSlots.TryGetSlot(_owner, flatpacker.SlotId, out var itemSlot))
             return;
 
+<<<<<<< HEAD
+=======
+        MachineBoardComponent? machineBoardComp = null;
+>>>>>>> discordauth
         if (flatpacker.Packing)
         {
             PackButton.Disabled = true;
         }
         else if (_currentBoard != null)
         {
+<<<<<<< HEAD
             //todo double trycomp is kinda stinky.
             Dictionary<string, int> cost;
             if (_entityManager.TryGetComponent<MachineBoardComponent>(_currentBoard, out var machineBoardComp) &&
+=======
+            Dictionary<string, int> cost;
+            if (_entityManager.TryGetComponent(_currentBoard, out machineBoardComp) &&
+>>>>>>> discordauth
                 machineBoardComp.Prototype is not null)
                 cost = _flatpack.GetFlatpackCreationCost((_owner, flatpacker), (_currentBoard.Value, machineBoardComp));
             else
@@ -88,16 +107,27 @@ public sealed partial class FlatpackCreatorMenu : FancyWindow
 
         _currentBoard = itemSlot.Item;
         CostHeaderLabel.Visible = _currentBoard != null;
+<<<<<<< HEAD
+=======
+        InsertLabel.Visible = _currentBoard == null;
+>>>>>>> discordauth
 
         if (_currentBoard is not null)
         {
             string? prototype = null;
             Dictionary<string, int>? cost = null;
 
+<<<<<<< HEAD
             if (_entityManager.TryGetComponent<MachineBoardComponent>(_currentBoard, out var machineBoard))
             {
                 prototype = machineBoard.Prototype;
                 cost = _flatpack.GetFlatpackCreationCost((_owner, flatpacker), (_currentBoard.Value, machineBoard));
+=======
+            if (machineBoardComp != null || _entityManager.TryGetComponent(_currentBoard, out machineBoardComp))
+            {
+                prototype = machineBoardComp.Prototype;
+                cost = _flatpack.GetFlatpackCreationCost((_owner, flatpacker), (_currentBoard.Value, machineBoardComp));
+>>>>>>> discordauth
             }
             else if (_entityManager.TryGetComponent<ComputerBoardComponent>(_currentBoard, out var computerBoard))
             {
@@ -116,15 +146,22 @@ public sealed partial class FlatpackCreatorMenu : FancyWindow
         }
         else
         {
+<<<<<<< HEAD
             _machinePreview = null;
             MachineNameLabel.SetMessage(" ");
             CostLabel.SetMessage(Loc.GetString("flatpacker-ui-no-board-label"));
+=======
+            _machinePreview = _entityManager.Spawn(NoBoardEffectId);
+            CostLabel.SetMessage(Loc.GetString("flatpacker-ui-no-board-label"));
+            MachineNameLabel.SetMessage(" ");
+>>>>>>> discordauth
             PackButton.Disabled = true;
         }
 
         MachineSprite.SetEntity(_machinePreview);
     }
 
+<<<<<<< HEAD
     //todo beautify
     private string GetCostString(Dictionary<string, int> costs)
     {
@@ -132,6 +169,16 @@ public sealed partial class FlatpackCreatorMenu : FancyWindow
         var msg = new FormattedMessage();
         foreach (var (mat, amount) in orderedCosts)
         {
+=======
+    private string GetCostString(Dictionary<string, int> costs)
+    {
+        var orderedCosts = costs.OrderBy(p => p.Value).ToArray();
+        var msg = new FormattedMessage();
+        for (var i = 0; i < orderedCosts.Length; i++)
+        {
+            var (mat, amount) = orderedCosts[i];
+
+>>>>>>> discordauth
             var matProto = _prototypeManager.Index<MaterialPrototype>(mat);
 
             var sheetVolume = _materialStorage.GetSheetVolume(matProto);
@@ -144,9 +191,16 @@ public sealed partial class FlatpackCreatorMenu : FancyWindow
                 ("material", Loc.GetString(matProto.Name)));
 
             msg.AddMarkup(text);
+<<<<<<< HEAD
             msg.PushNewline();
         }
         msg.Pop();
+=======
+
+            if (i != orderedCosts.Length - 1)
+                msg.PushNewline();
+        }
+>>>>>>> discordauth
 
         return msg.ToMarkup();
     }

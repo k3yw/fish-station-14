@@ -39,7 +39,7 @@ public sealed class TTSManager
     private ISawmill _sawmill = default!;
     private readonly Dictionary<string, byte[]> _cache = new();
     private readonly List<string> _cacheKeysSeq = new();
-    private int _maxCachedCount = 8000;
+    private int _maxCachedCount = 200;
     private string _apiUrl = string.Empty;
     private string _apiToken = string.Empty;
 

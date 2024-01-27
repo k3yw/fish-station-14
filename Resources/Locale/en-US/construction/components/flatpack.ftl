@@ -8,4 +8,8 @@ flatpacker-ui-title = Flatpacker 1001
 flatpacker-ui-materials-label = Materials
 flatpacker-ui-cost-label = Packing Cost
 flatpacker-ui-no-board-label = No board present!
+<<<<<<< HEAD
+=======
+flatpacker-ui-insert-board = Insert a board to begin.
+>>>>>>> discordauth
 flatpacker-ui-pack-button = Pack

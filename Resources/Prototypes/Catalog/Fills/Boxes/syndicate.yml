@@ -35,7 +35,11 @@
 - type: entity
   id: Observationskit
   parent: BoxCardboard
+<<<<<<< HEAD
   name: Observations kit
+=======
+  name: observations kit
+>>>>>>> discordauth
   suffix: Filled
   components:
     - type: StorageFill

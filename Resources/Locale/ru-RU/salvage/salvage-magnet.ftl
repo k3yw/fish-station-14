@@ -3,10 +3,18 @@ salvage-system-announcement-spawn-debris-disintegrated = Обломок дези
 salvage-system-announcement-spawn-no-debris-available = Нет обломков, которые можно притянуть магнитом.
 salvage-system-announcement-arrived = Обломок был притянут для утилизации. Расчётное время удержания: { $timeLeft } секунд.
 salvage-asteroid-name = Астероид
+<<<<<<< HEAD
 salvage-expedition-window-progression = Прогресс
 salvage-magnet-resources =
     { $resource ->
         [OreTin] Сталь
+=======
+salvage-magnet-window-title = Магнит обломков
+salvage-expedition-window-progression = Прогресс
+salvage-magnet-resources =
+    { $resource ->
+        [OreIron] Железо
+>>>>>>> discordauth
         [OreCoal] Уголь
         [OreQuartz] Кварц
         [OreGold] Золото
@@ -19,7 +27,13 @@ salvage-magnet-resources-count =
     { $count ->
         [1] (Мало)
         [2] (Средне)
+<<<<<<< HEAD
         [3] (Много)
+=======
+        [3] (Средне)
+        [4] (Много)
+        [5] (Много)
+>>>>>>> discordauth
        *[other] (Изобилие)
     }
 # Asteroids
@@ -34,6 +48,15 @@ salvage-map-proto-Small3 = Прачечная
 salvage-map-proto-Small4 = Осколок бара
 salvage-map-proto-SmallShip1 = Пилюля
 salvage-map-proto-SmallAISurveyDrone = Исследовательский ИИ-дрон
+<<<<<<< HEAD
+=======
+salvage-map-proto-SmallCargo = Шаттл шахтёров
+salvage-map-proto-SmallChapel = Часовня
+salvage-map-proto-SmallChef = Ресторан
+salvage-map-proto-SmallParty = День рождения
+salvage-map-proto-SmallSyndicate = Разрушенное судно Синдиката
+salvage-map-proto-SmallTesla = Зона содержания Теслы
+>>>>>>> discordauth
 salvage-map-proto-SmallA1 = Плазменный пожар на астероиде
 salvage-map-proto-Medium1 = Тайник с плазменной ловушкой
 salvage-map-proto-MediumVault1 = Хранилище
@@ -41,6 +64,10 @@ salvage-map-proto-MediumOrchestra = Безмолвный оркестр
 salvage-map-proto-MediumLibraryWreck = Покинутая библиотека
 salvage-map-proto-MediumCargoWreck = Крушение отдела снабжения
 salvage-map-proto-MediumPirateWreck = Обломок пиратской баржи
+<<<<<<< HEAD
+=======
+salvage-map-proto-MediumHaulingShuttleWreck = Разрушенный грузовой корабль
+>>>>>>> discordauth
 salvage-map-proto-TickColony = Колония космических клещей
 salvage-map-proto-CargoDock = Грузовой док на астероиде
 salvage-map-proto-SpaceWaffleHome = Вафельный домик

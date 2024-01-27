@@ -5,7 +5,10 @@ using Content.Shared.Construction;
 using Content.Shared.Construction.Components;
 using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.Timing;
+<<<<<<< HEAD
 using YamlDotNet.Serialization.NodeTypeResolvers;
+=======
+>>>>>>> discordauth
 
 namespace Content.Server.Construction;
 
@@ -37,7 +40,11 @@ public sealed class FlatpackSystem : SharedFlatpackSystem
         Dictionary<string, int>? cost = null;
         if (TryComp<MachineBoardComponent>(machineBoard, out var machineBoardComponent))
             cost = GetFlatpackCreationCost(ent, (machineBoard, machineBoardComponent));
+<<<<<<< HEAD
         if (TryComp<ComputerBoardComponent>(machineBoard, out var computerBoardComponent))
+=======
+        if (HasComp<ComputerBoardComponent>(machineBoard))
+>>>>>>> discordauth
             cost = GetFlatpackCreationCost(ent);
 
         if (cost is null)
@@ -78,7 +85,11 @@ public sealed class FlatpackSystem : SharedFlatpackSystem
         Dictionary<string, int>? cost = null;
         if (TryComp<MachineBoardComponent>(machineBoard, out var machineBoardComponent))
             cost = GetFlatpackCreationCost(ent, (machineBoard, machineBoardComponent));
+<<<<<<< HEAD
         if (TryComp<ComputerBoardComponent>(machineBoard, out var computerBoardComponent))
+=======
+        if (HasComp<ComputerBoardComponent>(machineBoard))
+>>>>>>> discordauth
             cost = GetFlatpackCreationCost(ent);
 
         if (cost is null)
@@ -89,6 +100,10 @@ public sealed class FlatpackSystem : SharedFlatpackSystem
 
         var flatpack = Spawn(comp.BaseFlatpackPrototype, Transform(ent).Coordinates);
         SetupFlatpack(flatpack, machineBoard);
+<<<<<<< HEAD
+=======
+        Del(machineBoard);
+>>>>>>> discordauth
     }
 
     public override void Update(float frameTime)

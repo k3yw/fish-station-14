@@ -18,7 +18,7 @@ public interface ISharedAdminManager
     /// </param>
     /// <returns><see langword="null" /> if the player is not an admin.</returns>
     AdminData? GetAdminData(EntityUid uid, bool includeDeAdmin = false);
-    
+
     /// <summary>
     ///     Gets the admin data for a player, if they are an admin.
     /// </summary>
@@ -32,6 +32,21 @@ public interface ISharedAdminManager
     AdminData? GetAdminData(ICommonSession session, bool includeDeAdmin = false);
 
     /// <summary>
+    ///     Checks if given session has PREMIUMANNOUNCE flag
+    /// </summary>
+    /// <remarks>
+    ///     Not sure what will happen when used on a client side lmao, didn't test
+    /// </remarks>
+    bool IsPremiumUser(ICommonSession? session);
+    /// <summary>
+    ///     Checks if given adminData has PREMIUMANNOUNCE flag
+    /// </summary>
+    /// <remarks>
+    ///     Not sure what will happen when used on a client side lmao, didn't test
+    /// </remarks>
+    bool IsPremiumUser(AdminData? adminData);
+
+    /// <summary>
     ///     See if a player has an admin flag.
     /// </summary>
     /// <remarks>
@@ -43,7 +58,7 @@ public interface ISharedAdminManager
         var data = GetAdminData(player);
         return data != null && data.HasFlag(flag);
     }
-    
+
     /// <summary>
     ///     See if a player has an admin flag.
     /// </summary>
@@ -71,7 +86,7 @@ public interface ISharedAdminManager
     {
         return GetAdminData(uid, includeDeAdmin) != null;
     }
-    
+
     /// <summary>
     ///     Checks if a player is an admin.
     /// </summary>

@@ -33,4 +33,11 @@ limit = 10.0
 [admin]
 see_own_notes = true
 deadmin_on_join = true
+<<<<<<< HEAD
 new_player_threshold = 600
+=======
+new_player_threshold = 600
+
+[worldgen]
+enabled = true
+>>>>>>> discordauth

@@ -54,8 +54,17 @@ public sealed partial class ItemComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float StoredRotation = 0;
+
+<<<<<<< HEAD
+=======
+    /// <summary>
+    /// An additional offset, in pixels, applied to the visual depiction of the item when displayed in the storage UI.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public Vector2i StoredOffset;
 }
 
+>>>>>>> discordauth
 /// <summary>
 ///     Raised when an item's visual state is changed. The event is directed at the entity that contains this item, so
 ///     that it can properly update its hands or inventory sprites and GUI.

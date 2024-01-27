@@ -18,6 +18,11 @@ public sealed partial class SalvageSystem
 
     private EntityQuery<SalvageMobRestrictionsComponent> _salvMobQuery;
 
+<<<<<<< HEAD
+=======
+    private List<(Entity<TransformComponent> Entity, EntityUid MapUid, Vector2 LocalPosition)> _detachEnts = new();
+
+>>>>>>> discordauth
     private void InitializeMagnet()
     {
         _salvMobQuery = GetEntityQuery<SalvageMobRestrictionsComponent>();
@@ -134,13 +139,23 @@ public sealed partial class SalvageSystem
 
             // Uhh yeah don't delete mobs or whatever
             var mobQuery = AllEntityQuery<HumanoidAppearanceComponent, MobStateComponent, TransformComponent>();
+<<<<<<< HEAD
+=======
+            _detachEnts.Clear();
+>>>>>>> discordauth
 
             while (mobQuery.MoveNext(out var mobUid, out _, out _, out var xform))
             {
                 if (xform.GridUid == null || !data.Comp.ActiveEntities.Contains(xform.GridUid.Value) || xform.MapUid == null)
                     continue;
 
+<<<<<<< HEAD
                 _transform.SetParent(mobUid, xform.MapUid.Value);
+=======
+                // Can't parent directly to map as it runs grid traversal.
+                _detachEnts.Add(((mobUid, xform), xform.MapUid.Value, _transform.GetWorldPosition(xform)));
+                _transform.DetachParentToNull(mobUid, xform);
+>>>>>>> discordauth
             }
 
             // Go and cleanup the active ents.
@@ -149,6 +164,14 @@ public sealed partial class SalvageSystem
                 Del(ent);
             }
 
+<<<<<<< HEAD
+=======
+            foreach (var entity in _detachEnts)
+            {
+                _transform.SetCoordinates(entity.Entity.Owner, new EntityCoordinates(entity.MapUid, entity.LocalPosition));
+            }
+
+>>>>>>> discordauth
             data.Comp.ActiveEntities = null;
         }
 
@@ -167,10 +190,18 @@ public sealed partial class SalvageSystem
             // Fuck with the seed to mix wrecks and asteroids.
             seed = (int) (seed / 10f) * 10;
 
+<<<<<<< HEAD
+=======
+            
+>>>>>>> discordauth
             if (i >= data.Comp.OfferCount / 2)
             {
                 seed++;
             }
+<<<<<<< HEAD
+=======
+            
+>>>>>>> discordauth
 
             data.Comp.Offered.Add(seed);
         }
@@ -305,13 +336,22 @@ public sealed partial class SalvageSystem
             }
         }
 
+<<<<<<< HEAD
         var magnetGridUid = _xformQuery.GetComponent(magnet.Owner).GridUid;
         Box2 attachedBounds = Box2.Empty;
         MapId mapId = MapId.Nullspace;
+=======
+        var magnetXform = _xformQuery.GetComponent(magnet.Owner);
+        var magnetGridUid = magnetXform.GridUid;
+        var attachedBounds = new Box2Rotated();
+        var mapId = MapId.Nullspace;
+        Angle worldAngle;
+>>>>>>> discordauth
 
         if (magnetGridUid != null)
         {
             var magnetGridXform = _xformQuery.GetComponent(magnetGridUid.Value);
+<<<<<<< HEAD
             attachedBounds = _transform.GetWorldMatrix(magnetGridXform)
                 .TransformBox(_gridQuery.GetComponent(magnetGridUid.Value).LocalAABB);
 
@@ -319,6 +359,22 @@ public sealed partial class SalvageSystem
         }
 
         if (!TryGetSalvagePlacementLocation(mapId, attachedBounds, bounds!.Value, out var spawnLocation, out var spawnAngle))
+=======
+            var (gridPos, gridRot) = _transform.GetWorldPositionRotation(magnetGridXform);
+            var gridAABB = _gridQuery.GetComponent(magnetGridUid.Value).LocalAABB;
+
+            attachedBounds = new Box2Rotated(gridAABB.Translated(gridPos), gridRot, gridPos);
+
+            worldAngle = (gridRot + magnetXform.LocalRotation) - MathF.PI / 2;
+            mapId = magnetGridXform.MapID;
+        }
+        else
+        {
+            worldAngle = _random.NextAngle();
+        }
+
+        if (!TryGetSalvagePlacementLocation(mapId, attachedBounds, bounds!.Value, worldAngle, out var spawnLocation, out var spawnAngle))
+>>>>>>> discordauth
         {
             Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-spawn-no-debris-available");
             _mapManager.DeleteMap(salvMap);
@@ -364,6 +420,7 @@ public sealed partial class SalvageSystem
         RaiseLocalEvent(ref active);
     }
 
+<<<<<<< HEAD
     private bool TryGetSalvagePlacementLocation(MapId mapId, Box2 attachedBounds, Box2 bounds, out MapCoordinates coords, out Angle angle)
     {
         const float OffsetRadiusMin = 4f;
@@ -375,27 +432,58 @@ public sealed partial class SalvageSystem
         var attachedCenter = attachedBounds.Center;
 
         angle = _random.NextAngle();
+=======
+    private bool TryGetSalvagePlacementLocation(MapId mapId, Box2Rotated attachedBounds, Box2 bounds, Angle worldAngle, out MapCoordinates coords, out Angle angle)
+    {
+        // Grid intersection only does AABB atm.
+        var attachedAABB = attachedBounds.CalcBoundingBox();
+
+        var minDistance = (attachedAABB.Height < attachedAABB.Width ? attachedAABB.Width : attachedAABB.Height) / 2f;
+        var minActualDistance = bounds.Height < bounds.Width ? minDistance + bounds.Width / 2f : minDistance + bounds.Height / 2f;
+
+        var attachedCenter = attachedAABB.Center;
+        var fraction = 0.25f;
+>>>>>>> discordauth
 
         // Thanks 20kdc
         for (var i = 0; i < 20; i++)
         {
             var randomPos = attachedCenter +
+<<<<<<< HEAD
                             _random.NextAngle().ToVec() * (minActualDistance +
                                                            _random.NextFloat(OffsetRadiusMin, OffsetRadiusMax));
             var finalCoords = new MapCoordinates(randomPos, mapId);
 
+=======
+                            worldAngle.ToVec() * (minActualDistance * fraction);
+            var finalCoords = new MapCoordinates(randomPos, mapId);
+
+            angle = _random.NextAngle();
+>>>>>>> discordauth
             var box2 = Box2.CenteredAround(finalCoords.Position, bounds.Size);
             var box2Rot = new Box2Rotated(box2, angle, finalCoords.Position);
 
             // This doesn't stop it from spawning on top of random things in space
             // Might be better like this, ghosts could stop it before
             if (_mapManager.FindGridsIntersecting(finalCoords.MapId, box2Rot).Any())
+<<<<<<< HEAD
                 continue;
+=======
+            {
+                // Bump it further and further just in case.
+                fraction += 0.25f;
+                continue;
+            }
+>>>>>>> discordauth
 
             coords = finalCoords;
             return true;
         }
 
+<<<<<<< HEAD
+=======
+        angle = Angle.Zero;
+>>>>>>> discordauth
         coords = MapCoordinates.Nullspace;
         return false;
     }

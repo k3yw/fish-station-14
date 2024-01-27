@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Numerics;
 using System.Threading.Tasks;
 using Content.Server.Atmos;
@@ -553,6 +554,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
         bool emptyTiles = true)
     {
         DebugTools.Assert(count > 0);
+<<<<<<< HEAD
 
         var frontier = new ValueList<Vector2i>(32);
         // TODO: Need poisson but crashes whenever I use moony's due to inputs or smth idk
@@ -601,6 +603,21 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
                         frontier.Add(neighbor);
                     }
                 }
+=======
+        var remainingTiles = _tilePool.Get();
+        var nodeEntities = new Dictionary<Vector2i, EntityUid?>();
+        var nodeMask = new Dictionary<Vector2i, string?>();
+
+        // Okay so originally we picked a random tile and BFS outwards
+        // the problem is if you somehow get a cooked frontier then it might drop entire veins
+        // hence we'll grab all valid tiles up front and use that as possible seeds.
+        // It's hella more expensive but stops issues.
+        for (var x = bounds.Left; x < bounds.Right; x++)
+        {
+            for (var y = bounds.Bottom; y < bounds.Top; y++)
+            {
+                var node = new Vector2i(x, y);
+>>>>>>> discordauth
 
                 // Empty tile, skip if relevant.
                 if (!emptyTiles && (!_mapSystem.TryGetTile(grid, node, out var tile) || tile.IsEmpty))
@@ -631,6 +648,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
                 }
 
                 DebugTools.Assert(layerProto.EntityMask.Count == 0 || !string.IsNullOrEmpty(proto));
+<<<<<<< HEAD
 
                 // Don't fight other layers.
                 if (!spawnSet.TryAdd(node, proto))
@@ -646,6 +664,79 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
         }
 
         _tilePool.Return(visited);
+=======
+                remainingTiles.Add(node);
+                nodeEntities.Add(node, existing);
+                nodeMask.Add(node, proto);
+            }
+        }
+
+        var frontier = new ValueList<Vector2i>(32);
+        // TODO: Need poisson but crashes whenever I use moony's due to inputs or smth idk
+        // Get the total amount of groups to spawn across the entire chunk.
+        // We treat a null entity mask as requiring nothing else on the tile
+
+        spawnSet = new Dictionary<Vector2i, string?>();
+        existingEnts = new HashSet<EntityUid>();
+
+        // Iterate the group counts and pathfind out each group.
+        for (var i = 0; i < count; i++)
+        {
+            var groupSize = rand.Next(layerProto.MinGroupSize, layerProto.MaxGroupSize + 1);
+
+            // While we have remaining tiles keep iterating
+            while (groupSize >= 0 && remainingTiles.Count > 0)
+            {
+                var startNode = rand.PickAndTake(remainingTiles);
+                frontier.Clear();
+                frontier.Add(startNode);
+
+                // This essentially may lead to a vein being split in multiple areas but the count matters more than position.
+                while (frontier.Count > 0 && groupSize >= 0)
+                {
+                    // Need to pick a random index so we don't just get straight lines of ores.
+                    var frontierIndex = rand.Next(frontier.Count);
+                    var node = frontier[frontierIndex];
+                    frontier.RemoveSwap(frontierIndex);
+                    remainingTiles.Remove(node);
+
+                    // Add neighbors if they're valid, worst case we add no more and pick another random seed tile.
+                    for (var x = -1; x <= 1; x++)
+                    {
+                        for (var y = -1; y <= 1; y++)
+                        {
+                            if (x != 0 && y != 0)
+                                continue;
+
+                            var neighbor = new Vector2i(node.X + x, node.Y + y);
+
+                            if (frontier.Contains(neighbor) || !remainingTiles.Contains(neighbor))
+                                continue;
+
+                            frontier.Add(neighbor);
+                        }
+                    }
+
+                    // Tile valid salad so add it.
+                    var mask = nodeMask[node];
+                    spawnSet.Add(node, mask);
+                    groupSize--;
+
+                    if (nodeEntities.TryGetValue(node, out var existing))
+                    {
+                        Del(existing);
+                    }
+                }
+            }
+
+            if (groupSize > 0)
+            {
+                Log.Warning($"Found remaining group size for ore veins!");
+            }
+        }
+
+        _tilePool.Return(remainingTiles);
+>>>>>>> discordauth
     }
 
     /// <summary>

@@ -34,7 +34,11 @@
       cpu_science: "#D381C9"
       cpu_supply: "#A46106"
   - type: StaticPrice
+<<<<<<< HEAD
     price: 500
+=======
+    price: 250
+>>>>>>> discordauth
   - type: Tag
     tags:
     - DroneUsable

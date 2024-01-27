@@ -31,6 +31,10 @@ public sealed class SalvageExpeditionConsoleBoundUserInterface : BoundUserInterf
     {
         base.Open();
         _window = new OfferingWindow();
+<<<<<<< HEAD
+=======
+        _window.Title = Loc.GetString("salvage-expedition-window-title");
+>>>>>>> discordauth
         _window.OnClose += Close;
         _window?.OpenCenteredLeft();
     }

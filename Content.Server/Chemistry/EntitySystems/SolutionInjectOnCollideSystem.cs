@@ -26,7 +26,11 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
         var target = args.OtherEntity;
 
         if (!args.OtherBody.Hard ||
+<<<<<<< HEAD
             !args.OurBody.Hard ||
+=======
+            args.OurFixtureId != ent.Comp.FixtureId ||
+>>>>>>> discordauth
             !EntityManager.TryGetComponent<BloodstreamComponent>(target, out var bloodstream) ||
             !_solutionContainersSystem.TryGetInjectableSolution(ent.Owner, out var solution, out _))
         {

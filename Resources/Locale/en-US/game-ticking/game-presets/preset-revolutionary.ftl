@@ -64,3 +64,15 @@ rev-headrev-name = [color=#5e9cff]{$name}[/color] converted {$count} {$count ->
     [one] person
     *[other] people
 }
+<<<<<<< HEAD
+=======
+
+## Deconverted window
+
+rev-deconverted-title = Deconverted!
+rev-deconverted-text =
+    As the last headrev has died, the revolution is over.
+
+    You are no longer a revolutionary, so be nice.
+rev-deconverted-confirm = Confirm
+>>>>>>> discordauth

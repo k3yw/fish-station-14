@@ -6,6 +6,7 @@ using Content.Server.Chat.Managers;
 using Content.Server.Database;
 using Content.Server.Players;
 using Content.Shared.Administration;
+using Content.Shared.Administration.Managers;
 using Content.Shared.CCVar;
 using Content.Shared.Players;
 using Robust.Server.Console;
@@ -290,6 +291,18 @@ namespace Content.Server.Administration.Managers
             }
         }
 
+        private async Task<bool> IsPremiumUserAsync(ICommonSession session)
+        {
+            var adminDat = await LoadAdminData(session, false);
+            if (adminDat == null)
+            {
+                // Not an admin.
+                return false;
+            }
+
+            return adminDat.Value.dat.HasFlag(AdminFlags.PremiumAnnounce, true);
+        }
+
         private async void LoginAdminMaybe(ICommonSession session)
         {
             var adminDat = await LoadAdminData(session, false);
@@ -561,6 +574,33 @@ namespace Content.Server.Administration.Managers
         {
             var flags = GetAdminData(session)?.Flags;
             OnPermsChanged?.Invoke(new AdminPermsChangedEventArgs(session, flags));
+        }
+
+        bool ISharedAdminManager.IsPremiumUser(ICommonSession? session)
+        {
+            if (session is null)
+            {
+                return false;
+            }
+            var adminData = GetAdminData(session, true);
+            if (adminData is null)
+            {
+                // Not an admin.
+                return false;
+            }
+
+            return adminData.HasFlag(AdminFlags.PremiumAnnounce, true);
+        }
+
+        bool ISharedAdminManager.IsPremiumUser(AdminData? adminData)
+        {
+            if (adminData is null)
+            {
+                // Not an admin.
+                return false;
+            }
+
+            return adminData.HasFlag(AdminFlags.PremiumAnnounce, true);
         }
 
         private sealed class AdminReg

@@ -1,13 +1,21 @@
 - type: weightedRandom
   id: AsteroidOre
   weights:
+<<<<<<< HEAD
     OreTin: 1.0
+=======
+    OreIron: 1.0
+>>>>>>> discordauth
     OreQuartz: 1.0
     OreCoal: 1.0
     OreGold: 0.25
     OreSilver: 0.25
     OrePlasma: 0.15
     OreUranium: 0.15
+<<<<<<< HEAD
+=======
+    OreArtifactFragment: 0.15
+>>>>>>> discordauth
 
 # Large asteroids, typically 1
 - type: dungeonConfig
@@ -16,7 +24,11 @@
   generator: !type:NoiseDunGen
     tileCap: 1500
     capStd: 32
+<<<<<<< HEAD
     iterations: 1
+=======
+    iterations: 3
+>>>>>>> discordauth
     layers:
       - tile: FloorAsteroidSand
         threshold: 0.30

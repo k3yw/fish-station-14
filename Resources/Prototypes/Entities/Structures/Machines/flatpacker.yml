@@ -32,12 +32,19 @@
           False: { visible: false }
   - type: FlatpackCreator
     baseMachineCost:
+<<<<<<< HEAD
       Steel: 600
       Plastic: 200
     baseComputerCost:
       Steel: 600
       Plastic: 200
       Glass: 200
+=======
+      Steel: 750
+    baseComputerCost:
+      Steel: 500
+      Glass: 250
+>>>>>>> discordauth
   - type: Machine
     board: FlatpackerMachineCircuitboard
   - type: MaterialStorage
@@ -85,3 +92,16 @@
     - board_slot
   - type: StaticPrice
     price: 2000
+<<<<<<< HEAD
+=======
+
+- type: entity
+  id: FlatpackerNoBoardEffect
+  categories:
+  - hideSpawnMenu
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/autolathe.rsi
+    state: icon
+    color: "#222222"
+>>>>>>> discordauth

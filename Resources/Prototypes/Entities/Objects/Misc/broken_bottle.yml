@@ -26,3 +26,9 @@
     materialComposition:
       Glass: 50
   - type: SpaceGarbage
+<<<<<<< HEAD
+=======
+  - type: WelderRefinable
+    refineResult:
+    - SheetGlass1
+>>>>>>> discordauth

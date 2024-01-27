@@ -33,8 +33,7 @@ public sealed partial class TTSSystem : EntitySystem
 
     private void OnRoundRestartCleanup(RoundRestartCleanupEvent ev)
     {
-        // EXPERIMENTAL
-        //_ttsManager.ResetCache();
+        _ttsManager.ResetCache();
     }
 
     private async void OnRequestGlobalTTS(RequestGlobalTTSEvent ev, EntitySessionEventArgs args)

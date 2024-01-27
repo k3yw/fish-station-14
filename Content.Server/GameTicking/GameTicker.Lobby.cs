@@ -84,12 +84,20 @@ namespace Content.Server.GameTicking
                 ("mapName", stationNames.ToString()),
                 ("gmTitle", gmTitle),
                 ("desc", desc));
+<<<<<<< HEAD
+=======
+        }
+
+        private TickerConnectionStatusEvent GetConnectionStatusMsg()
+        {
+            return new TickerConnectionStatusEvent(RoundStartTimeSpan);
+>>>>>>> discordauth
         }
 
         private TickerLobbyStatusEvent GetStatusMsg(ICommonSession session)
         {
             _playerGameStatuses.TryGetValue(session.UserId, out var status);
-            return new TickerLobbyStatusEvent(RunLevel != GameRunLevel.PreRoundLobby, LobbySong, LobbyBackground,status == PlayerGameStatus.ReadyToPlay, _roundStartTime, RoundPreloadTime, RoundStartTimeSpan, Paused);
+            return new TickerLobbyStatusEvent(RunLevel != GameRunLevel.PreRoundLobby, LobbySong, LobbyBackground, status == PlayerGameStatus.ReadyToPlay, _roundStartTime, RoundPreloadTime, RoundStartTimeSpan, Paused);
         }
 
         private void SendStatusToAll()
