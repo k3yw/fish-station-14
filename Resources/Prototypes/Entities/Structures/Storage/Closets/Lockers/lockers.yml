@@ -437,18 +437,7 @@
     stateDoorClosed: mime_door
 
 # Representative
-- type: entity
-  id: LockerRepresentative
-  name: representative locker
-  parent: LockerBaseSecure
-  components:
-  - type: Appearance
-  - type: AccessReader
-    access: [["Command"]]
-  - type: EntityStorageVisuals
-    stateBaseClosed: hop
-    stateDoorOpen: hop_open
-    stateDoorClosed: representative_door
+
 
 #Mosley
 - type: entity
@@ -506,3 +495,28 @@
     - id: MagazinePistolSubMachineGun
       amount: 2
     - id: ClothingBackpackBlueshield
+
+- type: entity
+  id: LockerNanotrasenRepresentive
+  parent: LockerBaseSecure
+  name: шкаф представителя NanoTrasen
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: ntr
+    stateDoorOpen: ntr_open
+    stateDoorClosed: ntr_door
+  - type: AccessReader
+    access: [["NanotrasenRepresentive"]]
+    
+- type: entity
+  id: LockerNanotrasenRepresentiveFilled
+  suffix: Filled
+  parent: LockerNanotrasenRepresentive
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponDisabler
+    - id: Flash
+    - id: ClothingNeckCloakNanotrasenRepresentive
+    - id: RubberStampNanotrasenRepresentive

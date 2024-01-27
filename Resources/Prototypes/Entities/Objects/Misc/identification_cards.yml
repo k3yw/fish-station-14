@@ -870,6 +870,18 @@
 
 - type: entity
   parent: IDCardStandard
+  id: NanotrasenRepresentiveIDCard
+  name: ID карта представителя NanoTrasen
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+    - state: idntr
+  - type: PresetIdCard
+    job: NanotrasenRepresentive
+
+- type: entity
+  parent: IDCardStandard
   id: InvestigatorIDCard
   name: ID карта следователя
   components:

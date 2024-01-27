@@ -51,6 +51,7 @@ job-name-ertjanitor = уборщик ОБР
 job-name-boxer = боксёр
 job-name-zookeeper = зоотехник
 job-name-blueshield = офицер "Синий Щит"
+job-name-nanotrasenrepresentive = представитель NanoTrasen
 # Role timers - Make these alphabetical or I cut you
 JobAtmosphericTechnician = атмосферный техник
 JobBartender = бармен
@@ -100,3 +101,4 @@ JobWarden = смотритель
 JobBoxer = боксёр
 JobZookeeper = зоотехник
 JobInvestigator = следователь
+JobNanotrasenRepresentive = представитель NanoTrasen

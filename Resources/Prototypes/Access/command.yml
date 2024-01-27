@@ -18,12 +18,17 @@
   id: Magistrat
   name: id-card-access-level-magistrat
 
+- type: accessLevel
+  id: NanotrasenRepresentive
+  name: id-card-access-level-nanotrasenrepresentive
+
 - type: accessGroup
   id: Command
   tags:
   - Command
   - Captain
   - HeadOfPersonnel
+  - NanotrasenRepresentive
   - Blueshield
   - Cryogenics
   - Magistrat
