@@ -23,7 +23,7 @@
 - type: startingGear
   id: LawyerGear
   equipment:
-    jumpsuit: ClothingUniformJumpskirtLawyerBlue
+    jumpsuit: ClothingUniformJumpsuitLawyerBlue
     back: ClothingBackpackFilled
     shoes: ClothingShoesBootsLaceup
     id: LawyerPDA
@@ -31,6 +31,6 @@
 
   inhand:
     - BriefcaseBrownFilled
-  innerClothingSkirt: ClothingUniformJumpskirtLawyerBlack
+  innerClothingSkirt: ClothingUniformJumpskirtLawyerBlue
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled
