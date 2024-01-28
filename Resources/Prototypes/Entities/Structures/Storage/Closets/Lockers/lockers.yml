@@ -488,6 +488,7 @@
   - type: StorageFill
     contents:
     - id: MedkitAdvancedFilled
+    - id: ClothingNeckCloakShcloack
     - id: WeaponDisabler
       amount: 1
     - id: WeaponSubMachineGunDrozd
