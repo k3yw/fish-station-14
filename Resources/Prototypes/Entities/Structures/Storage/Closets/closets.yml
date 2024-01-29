@@ -217,8 +217,9 @@
     contents:
       - id: ClothingUniformJumpsuitMedicalDoctor
       - id: HandheldHealthAnalyzer
-      - id: BoxForensicPad
         amount: 2
+      - id: BoxForensicPad
+        amount: 3
       - id: ClothingHeadsetPatologoanatom
       - id: HeadSkeleton
       - id: ClothingHeadHatPatologonatHat
