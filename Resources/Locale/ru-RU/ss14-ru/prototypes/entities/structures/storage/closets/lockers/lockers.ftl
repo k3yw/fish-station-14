@@ -69,3 +69,5 @@ ent-LockerMagistrat = шкаф магистрата
     .desc = { ent-LockerBaseSecure.desc }
 ent-LockerNanotrasenRepresentive = шкаф представителя NanoTrasen
     .desc = { ent-LockerBaseSecure.desc }
+ent-LockerRepresentative = шкаф представителя Nanotrasen
+    .desc = { ent-LockerBaseSecure.desc }

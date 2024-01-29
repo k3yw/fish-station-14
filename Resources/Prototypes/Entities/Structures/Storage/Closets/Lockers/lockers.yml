@@ -488,6 +488,7 @@
   - type: StorageFill
     contents:
     - id: MedkitAdvancedFilled
+    - id: ClothingNeckCloakShcloack
     - id: WeaponDisabler
       amount: 1
     - id: WeaponSubMachineGunDrozd
@@ -520,3 +521,16 @@
     - id: Flash
     - id: ClothingNeckCloakNanotrasenRepresentive
     - id: RubberStampNanotrasenRepresentive
+
+- type: entity
+  id: LockerRepresentative
+  name: representative locker
+  parent: LockerBaseSecure
+  components:
+  - type: Appearance
+  - type: AccessReader
+    access: [["Command"]]
+  - type: EntityStorageVisuals
+    stateBaseClosed: hop
+    stateDoorOpen: hop_open
+    stateDoorClosed: representative_door

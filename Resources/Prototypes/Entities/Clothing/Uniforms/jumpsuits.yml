@@ -1476,3 +1476,14 @@
     sprite: Clothing/Uniforms/Jumpsuit/ntr_suit.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/ntr_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitIntequeOps
+  name: комбинезон оперативника Inteque
+  description: Тёмно-коричневый комбинезон, используемый оперативниками Inteque.
+  components:
+  - type: Sprite
+    sprite: Uniforms/Jumpsuit/intequeops.rsi
+  - type: Clothing
+    sprite: Uniforms/Jumpsuit/intequeops.rsi

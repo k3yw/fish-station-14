@@ -11,6 +11,14 @@
   text: station-goal-solar-panels
 
 - type: stationGoal
+  id: StationGoalTheater
+  text: station-goal-theater
+
+- type: stationGoal
+  id: StationGoalBorgs
+  text: station-goal-borgs
+
+- type: stationGoal
   id: StationGoalArtifacts
   text: station-goal-artifacts
 

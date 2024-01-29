@@ -838,6 +838,22 @@
 
 - type: entity
   parent: ClothingHeadBase
+  id: ClothingHeadHatBeretInteque
+  name: берет Inteque
+  description: Тёмно-коричневый берет с эмблемой организации Inteque.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beret_inteque.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beret_inteque.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
   id: ClothingHeadHatInvestigatorHat
   name: фуражка следователя
   description: Темная фуражка с серебряными акцентами, принадлежит следователю, воплощая авторитет и профессионализм в каждой детали.

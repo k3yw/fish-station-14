@@ -11,6 +11,7 @@
   setPreference: true
   icon: "JobIconLawyer"
   supervisors: job-supervisors-magistrat
+  canBeAntag: false
   access:
   - Service
   - Lawyer
