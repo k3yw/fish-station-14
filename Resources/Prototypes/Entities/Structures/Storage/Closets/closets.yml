@@ -217,6 +217,7 @@
     contents:
       - id: ClothingUniformJumpsuitMedicalDoctor
       - id: HandheldHealthAnalyzer
+      - id: BoxFolderBlue
         amount: 2
       - id: BoxForensicPad
         amount: 3
