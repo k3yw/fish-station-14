@@ -1,10 +1,11 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Content.Server.Chat.Systems;
 using Content.Server.Fax;
 using Content.Server.Paper;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
-using Content.Shared.Paper;
+using Content.Shared.SS220.Photocopier;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
@@ -61,16 +62,22 @@ namespace Content.Server.Nuke
                     continue;
                 }
 
-                var printout = new FaxPrintout(
-                    paperContent,
-                    Loc.GetString("nuke-codes-fax-paper-name"),
-                    null,
-                    "paper_stamp-centcom",
-                    new List<StampDisplayInfo>
-                    {
-                        new StampDisplayInfo { StampedName = Loc.GetString("stamp-component-stamped-name-centcom"), StampedColor = Color.FromHex("#BB3232") },
-                    }
-                );
+                var dataToCopy = new Dictionary<Type, IPhotocopiedComponentData>();
+                var paperDataToCopy = new PaperPhotocopiedData()
+                {
+                    Content = paperContent,
+                    StampState = "paper_stamp-cent",
+                    StampedBy = new List<string>{Loc.GetString("stamp-component-stamped-name-centcom")}
+                };
+                dataToCopy.Add(typeof(PaperComponent), paperDataToCopy);
+
+                var metaData = new PhotocopyableMetaData()
+                {
+                    EntityName = Loc.GetString("nuke-codes-fax-paper-name"),
+                    PrototypeId = "PaperNtFormCcSecure"
+                };
+
+                var printout = new FaxPrintout(dataToCopy, metaData);
                 _faxSystem.Receive(faxEnt, printout, null, fax);
 
                 wasSent = true;
@@ -102,16 +109,9 @@ namespace Content.Server.Nuke
 
             var codesMessage = new FormattedMessage();
             // Find the first nuke that matches the passed location.
-            var nukes = new List<Entity<NukeComponent>>();
-            var query = EntityQueryEnumerator<NukeComponent>();
-            while (query.MoveNext(out var nukeUid, out var nuke))
-            {
-                nukes.Add((nukeUid, nuke));
-            }
-
-            _random.Shuffle(nukes);
-
-            foreach (var (nukeUid, nuke) in nukes)
+            var query = EntityQuery<NukeComponent>().ToList();
+            _random.Shuffle(query);
+            foreach (var nuke in query)
             {
                 if (!onlyCurrentStation &&
                     (owningStation == null &&
@@ -122,7 +122,7 @@ namespace Content.Server.Nuke
                 }
 
                 codesMessage.PushNewline();
-                codesMessage.AddMarkup(Loc.GetString("nuke-codes-list", ("name", MetaData(nukeUid).EntityName), ("code", nuke.Code)));
+                codesMessage.AddMarkup(Loc.GetString("nuke-codes-list", ("name", MetaData(nuke.Owner).EntityName), ("code", nuke.Code)));
                 break;
             }
 

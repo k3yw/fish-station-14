@@ -7,7 +7,6 @@ using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
-using Robust.Shared.Graphics;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -130,7 +129,7 @@ public sealed partial class FancyTree : Control
         };
 
         Items.Add(item);
-        item.Icon.SetSize = new Vector2(Indentation, Indentation);
+        item.FoldIcon.SetSize = new Vector2(Indentation, Indentation);
         item.Button.OnPressed += (_) => OnPressed(item);
 
         if (parent == null)
