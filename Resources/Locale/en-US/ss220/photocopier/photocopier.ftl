@@ -33,7 +33,7 @@ photocopier-ui-status-idle = [color=lime]Idle[/color]
 photocopier-ui-status-printing = [color=orange]Printing ({ $queue } queued)[/color]
 photocopier-ui-status-out = [color=red]Out of toner[/color]
 
-photocopier-flavor-left = SuperScan 220 XL
+photocopier-flavor-left = Scanner
 
 toner-cartridge-full = It is full.
 toner-cartridge-nearly-full = It is nearly full.

@@ -25,7 +25,7 @@ photocopier-ui-status = Статус:
 photocopier-ui-status-idle = [color=lime]Ожидание[/color]
 photocopier-ui-status-printing = [color=orange]Печать ({ $queue } в очереди)[/color]
 photocopier-ui-status-out = [color=red]Закончился тонер[/color]
-photocopier-flavor-left = SuperScan 220 XL
+photocopier-flavor-left = Scanner
 toner-cartridge-full = Он полный.
 toner-cartridge-nearly-full = Он почти полный.
 toner-cartridge-half-full = Он наполовину полный.

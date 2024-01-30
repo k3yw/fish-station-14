@@ -1,3 +1,5 @@
+# © SS220, An EULA/CLA with a hosting restriction, full text: https://raw.githubusercontent.com/SerbiaStrong-220/space-station-14/master/CLA.txt
+
 - type: entity
   name: butt scan
   parent: BaseItem
@@ -30,7 +32,7 @@
     contentMargin: 30.0, 30.0, 30.0, 30.0
   - type: ButtScan
   - type: Item
-    size: 1
+    size: Tiny
   - type: Tag
     tags:
     - Document

@@ -2,9 +2,9 @@
 <Form>
   <FormId>sec_pmt</FormId>
   <PrototypeId>PaperNtFormSec</PrototypeId>
-  <EntityName>форма НТ-СБ-РНО</EntityName>
+  <EntityName>форма NT-№ХХХ-SEC-CER</EntityName>
   <PhotocopierTitle>Разрешение на ношение оружия</PhotocopierTitle>
-  <Content><![CDATA[[bold]Форма НТ-СБ-РНО[/bold]
+  <Content><![CDATA[[bold]Форма NT-№ХХХ-SEC-CER[/bold]
 [head=2]Разрешение на ношение оружия[/head]
 
 [italic]Текущее время:[/italic]
