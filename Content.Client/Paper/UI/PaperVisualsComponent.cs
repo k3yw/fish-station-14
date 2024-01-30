@@ -88,7 +88,7 @@ public sealed partial class PaperVisualsComponent : Component
     ///     Modulate the style's font by this color
     /// </summary>
     [DataField("fontAccentColor")]
-    public Color FontAccentColor = new Color(223, 223, 213);
+    public Color FontAccentColor = new Color(26, 26, 26);
 
     /// <summary>
     ///     This can enforce that your paper has a limited area to write in.
