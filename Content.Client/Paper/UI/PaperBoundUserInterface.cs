@@ -34,7 +34,7 @@ public sealed class PaperBoundUserInterface : BoundUserInterface
 
         if (EntMan.TryGetComponent<PaperVisualsComponent>(Owner, out var visuals))
         {
-            _window.InitVisuals(Owner, visuals);
+            _window.InitVisuals(visuals);
         }
 
         _window.OpenCentered();

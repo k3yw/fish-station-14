@@ -19,6 +19,7 @@ using Content.Shared.SS220.ShapeCollisionTracker;
 using Robust.Shared.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Server.SS220.Photocopier;
 
@@ -34,6 +35,7 @@ public sealed partial class PhotocopierSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private readonly MetaDataSystem _metaData = default!;
 
     private FormManager? _specificFormManager;
     private readonly ISawmill _sawmill = Logger.GetSawmill("photocopier");
@@ -378,7 +380,7 @@ public sealed partial class PhotocopierSystem : EntitySystem
     private void StopPrinting(EntityUid uid, PhotocopierComponent component, bool updateVisualsAndUi = true)
     {
         ResetState(uid, component);
-        StopPrintingSound(component);
+        StopPrintingSound(component, _audio);
 
         if (updateVisualsAndUi)
         {
@@ -449,7 +451,7 @@ public sealed partial class PhotocopierSystem : EntitySystem
             {
                 // If there is no butt or someones else butt is in the way - stop copying.
                 if (component.HumanoidAppearanceOnTop is not { } humanoid
-                    || component.ButtSpecies != humanoid.Species)
+                    || (component.ButtSpecies is not null && component.ButtSpecies != humanoid.Species))
                 {
                     StopPrinting(uid, component);
                     return;
@@ -487,7 +489,8 @@ public sealed partial class PhotocopierSystem : EntitySystem
             }
 
             component.PrintingTimeRemaining = component.PrintingTime;
-            component.PrintAudioStream = _audio.PlayPvs(component.PrintSound, uid);
+            component.PrintAudioStream = _audio.PlayPvs(component.PrintSound, uid)?.Entity;
+
 
             if (component.State == PhotocopierState.Copying)
                 _itemSlots.SetLock(uid, component.PaperSlot, true);
@@ -527,9 +530,9 @@ public sealed partial class PhotocopierSystem : EntitySystem
     /// <summary>
     /// Stops the audio stream of a printing sound, dereferences it
     /// </summary>
-    private static void StopPrintingSound(PhotocopierComponent component)
+    private static void StopPrintingSound(PhotocopierComponent component, SharedAudioSystem audio)
     {
-        component.PrintAudioStream?.Stop();
+        component.PrintAudioStream = audio.Stop(component.PrintAudioStream);
         component.PrintAudioStream = null;
     }
 

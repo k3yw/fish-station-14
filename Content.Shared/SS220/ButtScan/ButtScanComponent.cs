@@ -1,4 +1,4 @@
-﻿// © SS220, An EULA/CLA with a hosting restriction, full text: https://raw.githubusercontent.com/SerbiaStrong-220/space-station-14/master/CLA.txt
+// © SS220, An EULA/CLA with a hosting restriction, full text: https://raw.githubusercontent.com/SerbiaStrong-220/space-station-14/master/CLA.txt
 
 using Content.Shared.SS220.Photocopier;
 using Robust.Shared.GameStates;
@@ -32,6 +32,12 @@ public sealed class ButtScanPhotocopiedData : IPhotocopiedComponentData
             return;
 
         if (ButtTexturePath is not null)
-            buttScanComponent.SetAndDirtyIfChanged(ref buttScanComponent.ButtTexturePath, ButtTexturePath);
+        {
+            var entSys = IoCManager.Resolve<IEntityManager>();
+            var changed = ButtTexturePath != buttScanComponent.ButtTexturePath;
+            buttScanComponent.ButtTexturePath = ButtTexturePath;
+            if (changed)
+                entSys.Dirty(buttScanComponent);
+        }
     }
 }

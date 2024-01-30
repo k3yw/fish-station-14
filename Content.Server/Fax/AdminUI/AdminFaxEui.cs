@@ -1,10 +1,12 @@
-﻿using Content.Server.DeviceNetwork.Components;
+using Content.Server.DeviceNetwork.Components;
 using Content.Server.EUI;
 using Content.Server.Ghost.Components;
 using Content.Server.Paper;
 using Content.Shared.Eui;
 using Content.Shared.Fax;
 using Content.Shared.Follower;
+using Content.Shared.Ghost;
+using Content.Shared.Paper;
 using Content.Shared.SS220.Photocopier;
 
 namespace Content.Server.Fax.AdminUI;
@@ -33,7 +35,7 @@ public sealed class AdminFaxEui : BaseEui
         var entries = new List<AdminFaxEntry>();
         while (faxes.MoveNext(out var uid, out var fax, out var device))
         {
-            entries.Add(new AdminFaxEntry(uid, fax.FaxName, device.Address));
+            entries.Add(new AdminFaxEntry(_entityManager.GetNetEntity(uid), fax.FaxName, device.Address));
         }
         return new AdminFaxEuiState(entries);
     }
@@ -50,18 +52,23 @@ public sealed class AdminFaxEui : BaseEui
                     !_entityManager.HasComponent<GhostComponent>(Player.AttachedEntity.Value))
                     return;
 
-                _followerSystem.StartFollowingEntity(Player.AttachedEntity.Value, followData.TargetFax);
+                _followerSystem.StartFollowingEntity(Player.AttachedEntity.Value, _entityManager.GetEntity(followData.TargetFax));
                 break;
             }
             case AdminFaxEuiMsg.Send sendData:
             {
                 var dataToCopy = new Dictionary<Type, IPhotocopiedComponentData>();
-                var paperDataToCopy = new PaperPhotocopiedData()
+                    var paperDataToCopy = new PaperPhotocopiedData()
                 {
                     Content = sendData.Content,
                     StampState = sendData.StampState,
-                    StampedBy = new List<string>{sendData.From}
-                };
+                    StampedBy = new List<StampDisplayInfo>{
+                        new(){
+                            StampedName = Loc.GetString("stamp-component-stamped-name-centcom"),
+                            StampedColor = Color.FromHex("#006600")
+                        }
+                    }
+                    };
                 dataToCopy.Add(typeof(PaperComponent), paperDataToCopy);
 
                 var metaData = new PhotocopyableMetaData()
@@ -71,7 +78,7 @@ public sealed class AdminFaxEui : BaseEui
                 };
 
                 var printout = new FaxPrintout(dataToCopy, metaData);
-                _faxSystem.Receive(sendData.Target, printout);
+                _faxSystem.Receive(_entityManager.GetEntity(sendData.Target), printout);
                 break;
             }
         }

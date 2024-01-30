@@ -9,7 +9,7 @@ using Robust.Shared.Audio;
 namespace Content.Shared.SS220.Photocopier;
 
 [RegisterComponent, NetworkedComponent]
-public sealed class PhotocopierComponent : Component
+public sealed partial class PhotocopierComponent : Component
 {
     // ReSharper disable RedundantLinebreak
 
@@ -159,7 +159,7 @@ public sealed class PhotocopierComponent : Component
     /// An audio stream of printing sound.
     /// Is saved in a variable so sound can be stopped later.
     /// </summary>
-    public IPlayingAudioStream? PrintAudioStream;
+    public EntityUid? PrintAudioStream;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public PhotocopierState State = PhotocopierState.Idle;

@@ -133,6 +133,12 @@ public sealed partial class SpeciesPrototype : IPrototype
     /// </summary>
     [DataField("maxAge")]
     public int MaxAge = 120;
+
+    /// <summary>
+    ///     Texture of a butt copy made with photocopier
+    /// </summary>
+    [DataField("buttScanTexture")]
+    public string ButtScanTexture = "/Textures/SS220/Interface/Butts/human.png";
 }
 
 public enum SpeciesNaming : byte

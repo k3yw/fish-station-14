@@ -1,9 +1,11 @@
-﻿﻿// © SS220, An EULA/CLA with a hosting restriction, full text: https://raw.githubusercontent.com/SerbiaStrong-220/space-station-14/master/CLA.txt
+﻿// © SS220, An EULA/CLA with a hosting restriction, full text: https://raw.githubusercontent.com/SerbiaStrong-220/space-station-14/master/CLA.txt
 
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Paper;
+using Content.Shared.Paper;
 using Content.Shared.SS220.Photocopier;
 using Content.Shared.SS220.Photocopier.Forms;
+using FastAccessors;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
@@ -123,13 +125,14 @@ public sealed partial class PhotocopierSystem
             entityToSpawn = "Paper";
 
         EntityUid printed;
+
         try
         {
             printed = EntityManager.SpawnEntity(entityToSpawn, at);
         }
-        catch (UnknownPrototypeException e)
+        catch (UnknownPrototypeException)
         {
-            _sawmill.Error("Tried to spawn a copy of a document, but got an unknown prototype ID: \""+entityToSpawn+"\"");
+            _sawmill.Error("Tried to spawn a copy of a document, but got an unknown prototype ID: \"" + entityToSpawn + "\"");
             return null;
         }
 
@@ -137,10 +140,10 @@ public sealed partial class PhotocopierSystem
         if (metaDataToCopy is not null && TryComp<MetaDataComponent>(printed, out var metaData))
         {
             if (!string.IsNullOrEmpty(metaDataToCopy.EntityName))
-                metaData.EntityName = metaDataToCopy.EntityName;
+                _metaData.SetEntityName(printed, metaDataToCopy.EntityName, metaData);
 
             if (!string.IsNullOrEmpty(metaDataToCopy.EntityDescription))
-                metaData.EntityDescription = metaDataToCopy.EntityDescription;
+                _metaData.SetEntityDescription(printed, metaDataToCopy.EntityDescription, metaData);
         }
 
         if (dataToCopy is not null)

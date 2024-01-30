@@ -29,6 +29,12 @@ public sealed partial class StampWidget : PanelContainer
         }
     }
 
+    public string? Stamper
+    {
+        get => StampedByLabel.Text;
+        set => StampedByLabel.Text = value;
+    }
+
     public StampWidget()
     {
         RobustXamlLoader.Load(this);

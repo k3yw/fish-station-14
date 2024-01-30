@@ -1,10 +1,10 @@
-﻿using System.Collections.Immutable;
+using System.Collections.Immutable;
 using Robust.Shared.Physics.Collision.Shapes;
 
 namespace Content.Shared.SS220.ShapeCollisionTracker;
 
 [RegisterComponent]
-public sealed class ShapeCollisionTrackerComponent : Component
+public partial class ShapeCollisionTrackerComponent : Component
 {
     public const string FixtureID  = "collision-tracker-fixture";
 

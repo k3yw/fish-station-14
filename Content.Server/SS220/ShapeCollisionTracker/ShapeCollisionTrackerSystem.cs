@@ -1,4 +1,4 @@
-﻿using System.Collections.Immutable;
+using System.Collections.Immutable;
 using Content.Shared.Physics;
 using Content.Shared.SS220.ShapeCollisionTracker;
 using Robust.Shared.Physics.Components;
@@ -49,7 +49,7 @@ public sealed class ShapeCollisionTrackerSystem : EntitySystem
         ShapeCollisionTrackerComponent component,
         ref StartCollideEvent args)
     {
-        if (args.OurFixture.ID != ShapeCollisionTrackerComponent.FixtureID)
+        if (args.OurFixtureId != ShapeCollisionTrackerComponent.FixtureID)
             return;
 
         component.Colliding.Add(args.OtherEntity);
@@ -61,7 +61,7 @@ public sealed class ShapeCollisionTrackerSystem : EntitySystem
         ShapeCollisionTrackerComponent component,
         ref EndCollideEvent args)
     {
-        if (args.OurFixture.ID != ShapeCollisionTrackerComponent.FixtureID)
+        if (args.OurFixtureId != ShapeCollisionTrackerComponent.FixtureID)
             return;
 
         component.Colliding.Remove(args.OtherEntity);
