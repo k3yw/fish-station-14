@@ -2,16 +2,18 @@
 <Form>
   <FormId>med_ord_chem</FormId>
   <PrototypeId>PaperNtFormMed</PrototypeId>
-  <EntityName>форма НТ-МЕД-ЗАК</EntityName>
-  <PhotocopierTitle>Заказ на химические вещества</PhotocopierTitle>
-  <Content><![CDATA[[bold]Форма НТ-МЕД-ЗАК[/bold]
-[head=2]Заказ на химические вещества[/head]
+  <EntityName>форма NT-XXX-MED-ORD</EntityName>
+  <PhotocopierTitle>Заказ на производство продукта</PhotocopierTitle>
+  <Content><![CDATA[[bold]Форма NT-№XXX-XXX-MED-ORD[/bold]
+[head=2]Заказ на производство продукта[/head]
 
+Дата: -/-/3024
 Заявитель:
-Должность:
-Вещество:
-Количество:
-Исполнение: (УКАЗАТЬ: таблетка/тара)
+Текущая должность заявителя:
+
+Вещество/продукт/препарат:
+Количество и дозировка:(Повторить требуемое количество лекарств)
+Исполнение: (Таблетка/тара/продукт)
 Причина:
 
 [italic]Место для печатей – Главный врач[/italic]]]></Content>

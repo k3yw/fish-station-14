@@ -2,13 +2,15 @@
 <Form>
   <FormId>sup_ord</FormId>
   <PrototypeId>PaperNtFormCargo</PrototypeId>
-  <EntityName>форма НТ-СНБ-ЗАК</EntityName>
+  <EntityName>форма NT-№XXX-XXX-SUP-ORD</EntityName>
   <PhotocopierTitle>Заказ товара</PhotocopierTitle>
-  <Content><![CDATA[[bold]Форма НТ-СНБ-ЗАК[/bold]
+  <Content><![CDATA[[bold]Форма NT-№XXX-XXX-SUP-ORD[/bold]
 [head=2]Заказ товара[/head]
 
-Заявитель: (ПОЛНОЕ ИМЯ)
-Должность: (ПОЛНОЕ НАЗВАНИЕ ДОЛЖНОСТИ)
+Дата: -/-/3024
+Заявитель:
+Текущая должность заявителя:
+
 Товар:
 Причина:
 Место доставки:

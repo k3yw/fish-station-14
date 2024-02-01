@@ -1484,6 +1484,6 @@
   description: Тёмно-коричневый комбинезон, используемый оперативниками Inteque.
   components:
   - type: Sprite
-    sprite: Uniforms/Jumpsuit/intequeops.rsi
+    sprite: Clothing/Uniforms/Jumpsuit/intequeops.rsi
   - type: Clothing
-    sprite: Uniforms/Jumpsuit/intequeops.rsi
+    sprite: Clothing/Uniforms/Jumpsuit/intequeops.rsi

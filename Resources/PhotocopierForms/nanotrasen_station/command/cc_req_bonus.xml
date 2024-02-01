@@ -2,14 +2,16 @@
 <Form>
   <FormId>cc_req_bonus</FormId>
   <PrototypeId>PaperNtFormCmd</PrototypeId>
-  <EntityName>форма НТ-ЦК-ЗПЦК</EntityName>
-  <PhotocopierTitle>Запрос на выдачу премии отделу или сотруднику</PhotocopierTitle>
-  <Content><![CDATA[[bold]Форма НТ-ЦК-ЗАП[/bold]
-[head=2]Запрос на выдачу премии отделу или сотруднику[/head]
+  <EntityName>форма NT-CMD-CC-REQQ</EntityName>
+  <PhotocopierTitle>Запрос на выдачу премии</PhotocopierTitle>
+  <Content><![CDATA[[bold]Форма NT-№ХХХ-CMD-CC-REQ[/bold]
+[head=2]Запрос на выдачу премии[/head]
 
-[italic]Дата: ДЕНЬ/МЕСЯЦ/ГОД [/italic]
+[italic]Дата: -/-/3024 [/italic]
 
-Уполномоченное лицо: (ПОЛНОЕ ИМЯ), (ДОЛЖНОСТЬ)
+Уполномоченное лицо:
+Должность уполномоченного лица:
+
 Награждаемый отдел или сотрудник:
 За следующие заслуги:
 

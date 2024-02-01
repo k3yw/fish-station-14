@@ -2,14 +2,14 @@
 <Form>
   <FormId>sec_pmt</FormId>
   <PrototypeId>PaperNtFormSec</PrototypeId>
-  <EntityName>форма NT-№ХХХ-SEC-CER</EntityName>
+  <EntityName>форма NT-SEC-CER</EntityName>
   <PhotocopierTitle>Разрешение на ношение оружия</PhotocopierTitle>
   <Content><![CDATA[[bold]Форма NT-№ХХХ-SEC-CER[/bold]
 [head=2]Разрешение на ношение оружия[/head]
 
-[italic]Текущее время:[/italic]
+[italic]Дата: -/-/3024[/italic]
 
-Заявитель: (ПОЛНОЕ ИМЯ ЗАЯВИТЕЛЯ)
+Заявитель: 
 Должность:
 Причина:
 Тип оружия:

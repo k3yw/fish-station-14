@@ -2,15 +2,17 @@
 <Form>
   <FormId>cmd_dcr_award</FormId>
   <PrototypeId>PaperNtFormCmd</PrototypeId>
-  <EntityName>форма НТ-КОМ-УКЗ</EntityName>
+  <EntityName>форма NT-CMD-CC-REQ</EntityName>
   <PhotocopierTitle>Приказ о награждении</PhotocopierTitle>
-  <Content><![CDATA[[bold]Форма НТ-КОМ-УКЗ[/bold]
-[head=2]Приказ о награждении[/head]
+  <Content><![CDATA[[bold]Форма NT-№ХХХ-CMD-CC-REQ[/bold]
+[head=2]Запрос на выдачу премии[/head]
 
-[italic]Дата: ДЕНЬ/МЕСЯЦ/ГОД [/italic]
+[italic]Дата: -/-/3024 [/italic]
 
-Я, (ПОЛНОЕ ИМЯ), в лице (ДОЛЖНОСТЬ)
-Награждаю (ПОЛНОЕ ИМЯ) (ВИД НАГРАДЫ - Медалью и т.п.)
+Уполномоченное лицо:
+Должность уполномоченного лица:
+
+Награждаемый отдел или сотрудник:
 За следующие заслуги:
 
 [italic]Место для печатей[/italic]]]></Content>

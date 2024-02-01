@@ -7,7 +7,6 @@
     - /PhotocopierForms/nanotrasen_central_command/main/cc_cmd_dcr_evac.xml
     - /PhotocopierForms/nanotrasen_central_command/main/cc_cmd_dcr_goal_rep.xml
     - /PhotocopierForms/nanotrasen_central_command/main/cc_cmd_dcr_shift_end.xml
-    - /PhotocopierForms/nanotrasen_central_command/main/cc_cmd_dcr_exec.xml
     - /PhotocopierForms/nanotrasen_central_command/main/cc_cmd_dcr_goal.xml
     - /PhotocopierForms/nanotrasen_central_command/main/cc_cmd_dcr_hire.xml
     - /PhotocopierForms/nanotrasen_central_command/main/cc_cmd_dcr_sitrep.xml
@@ -21,15 +20,17 @@
     - /PhotocopierForms/nanotrasen_central_command/blank/blank_secure_cc.xml
 - Id: nanotrasen_station
   Groups:
-  - Id: goal
-    Name: Цели станции
-    Color: "#E5DD29"
-    IconPath: /Textures/SS220/DepartmentIcons/goal.png
+  - Id: hr
+    Name: Общие документы
+    IconPath: /Textures/SS220/DepartmentIcons/general.png
     Forms:
-    - /PhotocopierForms/nanotrasen_station/goal/goal_simple.xml
-    - /PhotocopierForms/nanotrasen_station/goal/goal_guests.xml
-    - /PhotocopierForms/nanotrasen_station/goal/goal_capsule.xml
-    - /PhotocopierForms/nanotrasen_station/goal/goal_expedition.xml
+    - /PhotocopierForms/nanotrasen_station/hr/cmd_req_id.xml
+    - /PhotocopierForms/nanotrasen_station/hr/cmd_req_pda.xml
+    - /PhotocopierForms/nanotrasen_station/hr/cmd_acwt.xml
+    - /PhotocopierForms/nanotrasen_station/hr/cmd_ept_pde.xml
+    - /PhotocopierForms/nanotrasen_station/hr/cmd_afe.xml
+    - /PhotocopierForms/nanotrasen_station/hr/svc_mcf.xml
+    - /PhotocopierForms/nanotrasen_station/hr/svc_mds.xml
   - Id: command
     Name: Командование
     Color: "#5555FFFF"
@@ -43,19 +44,10 @@
     - /PhotocopierForms/nanotrasen_station/command/cmd_cc_srt.xml
     - /PhotocopierForms/nanotrasen_station/command/cmd_dcr_award.xml
     - /PhotocopierForms/nanotrasen_station/command/cmd_fcom.xml
-  - Id: hr
-    Name: Отдел кадров
-    Color: "#5555FFFF"
-    IconPath: /Textures/SS220/DepartmentIcons/Cmd_dep.png
-    Forms:
-    - /PhotocopierForms/nanotrasen_station/hr/cmd_qlf.xml
-    - /PhotocopierForms/nanotrasen_station/hr/cmd_req_id.xml
-    - /PhotocopierForms/nanotrasen_station/hr/cmd_req_pda.xml
-    - /PhotocopierForms/nanotrasen_station/hr/cmd_afe.xml
-    - /PhotocopierForms/nanotrasen_station/hr/cmd_dsc.xml
-    - /PhotocopierForms/nanotrasen_station/hr/cmd_ept.xml
-    - /PhotocopierForms/nanotrasen_station/hr/cmd_acr.xml
-    - /PhotocopierForms/nanotrasen_station/hr/cmd_acwt.xml
+    - /PhotocopierForms/nanotrasen_station/command/cmd_acr.xml
+    - /PhotocopierForms/nanotrasen_station/command/cmd_dsc.xml
+    - /PhotocopierForms/nanotrasen_station/command/cmd_qlf.xml
+    - /PhotocopierForms/nanotrasen_station/command/svc_sitrep.xml
   - Id: law
     Name: Юридический отдел
     Color: "#DD4040FF"
@@ -65,10 +57,8 @@
     - /PhotocopierForms/nanotrasen_station/law/sec_gop.xml
     - /PhotocopierForms/nanotrasen_station/law/sec_rep_ia.xml
     - /PhotocopierForms/nanotrasen_station/law/sec_sopb.xml
-    - /PhotocopierForms/nanotrasen_station/law/sec_sopb_crit.xml
-    - /PhotocopierForms/nanotrasen_station/law/sec_vdc.xml
-    - /PhotocopierForms/nanotrasen_station/law/sec_vdc_gop.xml
-    - /PhotocopierForms/nanotrasen_station/law/law_anonymousdenunciation.xml
+    - /PhotocopierForms/nanotrasen_station/law/sec_exc.xml
+    - /PhotocopierForms/nanotrasen_station/law/sec_vdc_a.xml
   - Id: security
     Name: Служба Безопасности
     Color: "#DD4040FF"
@@ -76,16 +66,13 @@
     Forms:
     - /PhotocopierForms/nanotrasen_station/security/sec_awt.xml
     - /PhotocopierForms/nanotrasen_station/security/sec_dty.xml
-    - /PhotocopierForms/nanotrasen_station/security/sec_exc.xml
-    - /PhotocopierForms/nanotrasen_station/security/sec_inw.xml
-    - /PhotocopierForms/nanotrasen_station/security/sec_itg.xml
     - /PhotocopierForms/nanotrasen_station/security/sec_ord_imp.xml
     - /PhotocopierForms/nanotrasen_station/security/sec_pmt.xml
     - /PhotocopierForms/nanotrasen_station/security/sec_rep_itg.xml
     - /PhotocopierForms/nanotrasen_station/security/sec_sur.xml
-    - /PhotocopierForms/nanotrasen_station/security/sec_swt.xml
-    - /PhotocopierForms/nanotrasen_station/security/sup_ord_wep.xml
     - /PhotocopierForms/nanotrasen_station/security/sec_sitrep.xml
+    - /PhotocopierForms/nanotrasen_station/security/sup_sitrep_sent.xml
+    - /PhotocopierForms/nanotrasen_station/security/sup_sitrep_ptw.xml
   - Id: medical
     Name: Медицинский отдел
     Color: "#8585FFFF"
@@ -96,7 +83,6 @@
     - /PhotocopierForms/nanotrasen_station/medical/med_rcp.xml
     - /PhotocopierForms/nanotrasen_station/medical/med_rep_death.xml
     - /PhotocopierForms/nanotrasen_station/medical/med_rep_psych.xml
-    - /PhotocopierForms/nanotrasen_station/medical/med_rep_psych_tourette.xml
     - /PhotocopierForms/nanotrasen_station/medical/med_sitrep.xml
   - Id: engineering
     Name: Инженерный отдел
@@ -104,7 +90,6 @@
     IconPath: /Textures/SS220/DepartmentIcons/Eng_dep.png
     Forms:
     - /PhotocopierForms/nanotrasen_station/engineering/eng_permit.xml
-    - /PhotocopierForms/nanotrasen_station/engineering/eng_permit_2.xml
     - /PhotocopierForms/nanotrasen_station/engineering/eng_req_tw.xml
     - /PhotocopierForms/nanotrasen_station/engineering/eng_sitrep.xml
   - Id: science
@@ -122,16 +107,8 @@
     IconPath: /Textures/SS220/DepartmentIcons/Cargo_dep.png
     Forms:
     - /PhotocopierForms/nanotrasen_station/cargo/sup_ord.xml
-    - /PhotocopierForms/nanotrasen_station/cargo/sup_ord_dng.xml
+    - /PhotocopierForms/nanotrasen_station/cargo/sup_ord_wep.xml
     - /PhotocopierForms/nanotrasen_station/cargo/sup_sitrep.xml
-  - Id: service
-    Name: Отдел обслуживания
-    Color: "#81D962FF"
-    IconPath: /Textures/SS220/DepartmentIcons/Serv_dep.png
-    Forms:
-    - /PhotocopierForms/nanotrasen_station/service/svc_mcf.xml
-    - /PhotocopierForms/nanotrasen_station/service/svc_mds.xml
-    - /PhotocopierForms/nanotrasen_station/service/svc_sitrep.xml
   - Id: blank
     Name: Свободные бланки
     IconPath: /Textures/SS220/DepartmentIcons/empty.png

@@ -2,15 +2,17 @@
 <Form>
   <FormId>sec_awt</FormId>
   <PrototypeId>PaperNtFormSec</PrototypeId>
-  <EntityName>форма НТ-СБ-АРСТ</EntityName>
+  <EntityName>форма NT-SEC-SER</EntityName>
   <PhotocopierTitle>Ордер на арест</PhotocopierTitle>
-  <Content><![CDATA[[bold]Форма НТ-СБ-АРСТ[/bold]
-[head=2]Ордер на арест[/head]
+  <Content><![CDATA[[bold]Форма NT-№XXX-SEC-SER[/bold]
+[head=2]Ордер на  следственные действи[/head]
 
-Заявитель ордера: (ПОЛНОЕ ИМЯ)
-Должность заявителя:
-Провести задержание и арест лиц(а):
+Дата: -/-/3024
+Уполномоченное лицо:
+Должность уполномоченного лица:
+
+Провести (задержание и арест лиц(а)/обыск лиц(а)):
 Причина:
 
-[italic]Место для печатей – Служба безопасности[/italic]]]></Content>
+[italic]Место для печатей[/italic]]]></Content>
 </Form>
