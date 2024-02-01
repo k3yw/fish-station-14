@@ -2,7 +2,8 @@
   id: Vulpkanin
   name: species-name-vulpkanin
   roundStart: true
-  sponsorOnly: falsepkanin
+  prototype: MobVulpkanin
+  sponsorOnly: false
   sprites: MobVulpkaninSprites
   defaultSkinTone: "#eb943d"
   markingLimits: MobVulpkaninMarkingLimits
