@@ -2,14 +2,17 @@
 <Form>
   <FormId>med_rcp</FormId>
   <PrototypeId>PaperNtFormMed</PrototypeId>
-  <EntityName>форма НТ-МЕД-РЦП</EntityName>
-  <PhotocopierTitle>Рецепт</PhotocopierTitle>
-  <Content><![CDATA[[bold]Форма НТ-МЕД-РЦП[/bold]
-[head=2]Рецепт[/head]
+  <EntityName>форма NT-MED-SER</EntityName>
+  <PhotocopierTitle>Лекарственный рецепт</PhotocopierTitle>
+  <Content><![CDATA[[bold]Форма NT-№XXX-MED-SER[/bold]
+[head=2]Лекарственный рецепт[/head]
 
-Врач: (ПОЛНОЕ ИМЯ ВРАЧА)
+Дата: -/-/3024
+Уполномоченное лицо:
+Должность уполномоченного лица:
+
 Полное имя и должность пациента:
-Разрешенные лекарства:
+Разрешенные лекарства: Прим.: Масло ТГК
 Причина: (Невыносимые муки причиняемые психологическими/физическими болезнями и т.п.)
 
 [italic]Место для печатей - Главный врач или Психолог[/italic]]]></Content>

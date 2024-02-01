@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Form>
   <FormId>cmd_qlf</FormId>
-  <PrototypeId>PaperNtFormCmd</PrototypeId>
+  <PrototypeId>PaperNtForm</PrototypeId>
   <EntityName>форма НТ-КОМ-КВАЛ</EntityName>
   <PhotocopierTitle>Сертификат о повышении квалификации</PhotocopierTitle>
   <Content><![CDATA[[bold]Форма НТ-КОМ-КВАЛ[/bold]

@@ -2,19 +2,18 @@
 <Form>
   <FormId>rnd_ror</FormId>
   <PrototypeId>PaperNtFormSci</PrototypeId>
-  <EntityName>форма НТ-ИСЛ-ОИП</EntityName>
+  <EntityName>форма NT-RND-REP</EntityName>
   <PhotocopierTitle>Отчёт об изучении предмета</PhotocopierTitle>
-  <Content><![CDATA[[bold]Форма НТ-ИСЛ-ОИП[/bold]
+  <Content><![CDATA[[bold]Форма NT-№XXX-RND-REP[/bold]
 [head=2]Отчет об изучении предмета[/head]
 
-[italic]Дата: ДЕНЬ/МЕСЯЦ/ГОД[/italic]
+Дата: -/-/3024
+Уполномоченное лицо:
+Должность уполномоченного лица:
 
-[bold]Внешний вид предмета:[/bold] (ОТЛИЧИТЕЛЬНЫЕ ОСОБЕННОСТИ ВНЕШНЕГО ВИДА)
-[bold]Скрытые свойства:[/bold]
-
-[bold]Классификация предмета:[/bold]
-
-[bold]Ответственный:[/bold] (ПОЛНОЕ ИМЯ, ДОЛЖНОСТЬ)
+Внешний вид предмета:
+Скрытые свойства:
+Классификация предмета:
 
 [italic]Место для печатей - Научный руководитель[/italic]]]></Content>
 </Form>

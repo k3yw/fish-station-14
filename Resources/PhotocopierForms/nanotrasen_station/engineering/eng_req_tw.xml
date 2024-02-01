@@ -2,15 +2,16 @@
 <Form>
   <FormId>eng_req_tw</FormId>
   <PrototypeId>PaperNtFormEng</PrototypeId>
-  <EntityName>форма НТ-ИНЖ-ЗАП</EntityName>
-  <PhotocopierTitle>Запрос на проведение технических работ в отделе</PhotocopierTitle>
-  <Content><![CDATA[[bold]Форма НТ-ИНЖ-ЗАП[/bold]
-[head=2]Запрос на проведение технических работ в отделе[/head]
+  <EntityName>форма NT-ENG-REQ</EntityName>
+  <PhotocopierTitle>Запрос на проведение технических работ</PhotocopierTitle>
+  <Content><![CDATA[[bold]Форма NT-№ХХХ-ENG-REQ[/bold]
+[head=2]Запрос на проведение технических работ[/head]
 
-[italic]Дата: ДЕНЬ/МЕСЯЦ/ГОД [/italic]
+[italic]Дата: -/-/3024 [/italic]
 
-Заявитель: (ПОЛНОЕ ИМЯ)
-Должность:
+Заявитель:
+Текущая должность заявителя:
+
 Название отдела:
 Причина:
 

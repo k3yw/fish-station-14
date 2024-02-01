@@ -2,12 +2,12 @@
 <Form>
   <FormId>sec_rep_itg</FormId>
   <PrototypeId>PaperNtFormSec</PrototypeId>
-  <EntityName>форма НТ-СБ-ОТЧ</EntityName>
+  <EntityName>форма NT-SEC-OTCH</EntityName>
   <PhotocopierTitle>Отчёт о расследовании</PhotocopierTitle>
   <Content><![CDATA[[bold]Форма НТ-СБ-ОТЧ[/bold]
 [head=2]Отчет о расследовании[/head]
 
-Я, (ПОЛНОЕ ИМЯ), в должности детектива провел расследование о деле (УКАЗАТЬ ДЕЛО).
+Я, (ПОЛНОЕ ИМЯ), в должности детектива провел расследование о деле.
 
 [bold]Мною были допрошены свидетели:[/bold]
 

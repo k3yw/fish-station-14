@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Form>
   <FormId>cmd_acr</FormId>
-  <PrototypeId>PaperNtForm</PrototypeId>
-  <EntityName>форма НТ-КОМ-ЛД</EntityName>
+  <PrototypeId>PaperNtFormCmd</PrototypeId>
+  <EntityName>форма NT-CMD-DCR</EntityName>
   <PhotocopierTitle>Приказ о лишении доступа</PhotocopierTitle>
   <Content><![CDATA[[bold]Форма НТ-КОМ-ЛД[/bold]
 [head=2]Приказ о лишении доступа[/head]
 
-Заявитель:
+Дата: -/-/3024
+Уполномоченное лицо:
+Должность уполномоченного лица:
+
 Прошу лишить сотрудника(ов):
-доступа в:
+Доступа в:
 Причина:
 
 [italic]Место для печатей – Глава(ы) отдела(ов)[/italic]]]></Content>
