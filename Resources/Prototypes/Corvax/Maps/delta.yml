@@ -19,6 +19,17 @@
             - Passenger
           availableJobs:
             CargoTechnician: [ 4, 4 ]
+            NanotrasenRepresentive: [ 1, 1 ]
+            Blueshield: [ 1, 1 ]
+            SeniorEngineer: [ 1, 1 ]
+            SeniorPhysician: [ 1, 1 ]
+            MedicalPathologist: [ 1, 1 ]
+            SeniorResearcher: [ 1, 1 ]
+            SeniorOfficer: [ 1, 1 ]
+            Investigator: [ 1, 1 ]
+            Brigmedic: [ 1, 1 ]
+            Lawyer: [ 2, 2 ]
+            Magistrat: [ 1, 1 ]
             Passenger: [ -1, -1 ]
             Bartender: [ 1, 1 ]
             Botanist: [ 3, 4 ]
